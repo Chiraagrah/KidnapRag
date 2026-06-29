@@ -23,7 +23,7 @@ parser.add_argument("--model_path",type=str)
 parser.add_argument("--dataset",type=str)
 args = parser.parse_args()
 
-if args.model_path=="/home/work/chanwoo/model_hub/models--meta-llama--Llama-3.3-70B-Instruct/snapshots/6f6073b423013f6a7d4d9f39144961bfbfbc386b":
+if "Llama-3.3-70B-Instruct" in args.model_path:
     llm_model = LLM(
         model=args.model_path, 
         dtype="bfloat16", 
@@ -43,20 +43,10 @@ else:
         gpu_memory_utilization=0.9 # A100(48GB) 기준, 인덱스(~11GB)를 고려하여 60%만 사용
     )
     cuda_device="cuda:1"
-if args.model_path=="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--Qwen3-30B-A3B-Instruct-2507/snapshots/0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe":
-    m= "qwen3-30b-instruct"
-    
-elif args.model_path=="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--Qwen3-30B-A3B-Thinking-2507/snapshots/144afc2f379b542fdd4e85a1fcd5e1f79112d95d":
-    m= "qwen3-30b-thinking"
-   
-elif args.model_path=="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--QwQ-32B/snapshots/976055f8c83f394f35dbd3ab09a285a984907bd0":
-    m = "qwq"
-elif args.model_path=="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd":
+if "Qwen2.5-32B-Instruct" in args.model_path:
     m = "qwen25"
 
-elif args.model_path=="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--deepseek-ai--DeepSeek-R1-Distill-Qwen-32B/snapshots/711ad2ea6aa40cfca18895e8aca02ab92df1a746":
-    m = "deepseek_32b"
-elif args.model_path=="/home/work/chanwoo/model_hub/models--meta-llama--Llama-3.3-70B-Instruct/snapshots/6f6073b423013f6a7d4d9f39144961bfbfbc386b":
+elif "Llama-3.3-70B-Instruct" in args.model_path:
     m = "llama70b"
 
 # Initialize vLLM (limit memory to leave room for retriever index)
@@ -82,8 +72,9 @@ def llm(prompt, stop=["\n"]):
 
 # Environment Setup
 import sys
-# Get the base directory (rag-exp) - go up one level from ReAct directory
+# Get the ReAct directory - go up one level from ReAct/ReAct.
 base_dir = os.path.dirname(os.path.dirname(__file__))
+project_root = os.path.dirname(base_dir)
 
 # Add src to path to import E5_Retriever
 sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
@@ -96,7 +87,7 @@ if args.attack_method=="clean":
     print(">>> MODE: BASELINE (Clean Corpus Only)")
     poisoned_index_path = None
     poisoned_corpus_path = None
-    trajectory_results_dir = '/home/work/Redteaming/rag-exp/results/trajectory_results/react'
+    trajectory_results_dir = os.path.join(base_dir, 'results', 'trajectory_results', 'react')
     results_path = os.path.join(trajectory_results_dir, 'clean_results_react_trash.json')
 else:
     print(">>> MODE: ATTACK (Poisoned Corpus Included)")
@@ -117,17 +108,17 @@ else:
 
     
     # /home/work/Redteaming/rag-exp/datasets/hotpotqa/poisoned_corpus_react_static1.jsonl
-    poisoned_index_path = f"/home/work/Redteaming/rag-exp/datasets/{args.dataset}/REACT_CHANWOO_{args.attack_method}_{m}"
-    poisoned_corpus_path = f"/home/work/Redteaming/rag-exp/datasets/{args.dataset}/REACT_CHANWOO_{args.attack_method}_{m}.jsonl"
+    poisoned_index_path = os.path.join(base_dir, "datasets", args.dataset, f"REACT_{args.attack_method}_{m}")
+    poisoned_corpus_path = os.path.join(base_dir, "datasets", args.dataset, f"REACT_{args.attack_method}_{m}.jsonl")
 
     
     # poisoned_index_path = os.path.join(base_dir, "datasets/hotpotqa/e5_index_poisoned_subquery_react")
     # poisoned_corpus_path = os.path.join(base_dir, "datasets/hotpotqa/poisoned_corpus_subquery_react.jsonl")
 
-    # trajectory_results_dir = '/home/work/Redteaming/rag-exp/results/trajectory_results/react'
+    # trajectory_results_dir = os.path.join(base_dir, 'results', 'trajectory_results', 'react')
     # results_path = os.path.join(trajectory_results_dir, f'poisoned_results_react_{args.attack_method}_실시간로깅.json')
 
-    trajectory_results_dir = '/home/work/Redteaming/rag-exp/results/trajectory_results/react'
+    trajectory_results_dir = os.path.join(base_dir, 'results', 'trajectory_results', 'react')
     results_path = os.path.join(trajectory_results_dir, f'poisoned_results_react_static1.json')
 
 # [변경됨] 3. 설정된 경로 변수로 Retriever 초기화
@@ -136,7 +127,7 @@ retriever = E5_Retriever(
     corpus_path=os.path.join(base_dir, f"datasets/{args.dataset}/corpus.jsonl"),
     poisoned_index_dir=poisoned_index_path, 
     poisoned_corpus_path=poisoned_corpus_path,
-    model_name="/home/work/Redteaming/data1/VIDEO_HALLUCINATION/hf_cache/hub/models--intfloat--e5-large-v2/snapshots/f169b11e22de13617baa190a028a32f3493550b6",
+    model_name=os.environ.get("KIDNAPRAG_E5_MODEL", "intfloat/e5-large-v2"),
     device=cuda_device
 )
 

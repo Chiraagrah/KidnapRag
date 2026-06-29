@@ -7,6 +7,16 @@ from tqdm import tqdm
 from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
 import numpy as np
+
+WEBTHINKER_ROOT = Path(__file__).resolve().parents[1]
+KIDNAP_ROOT = WEBTHINKER_ROOT.parent
+
+def resolve_readme_path(path_value: str) -> Path:
+    path = Path(path_value).expanduser()
+    marker = Path("/KidnapRAG")
+    if path.is_absolute() and str(path).startswith(str(marker)):
+        return KIDNAP_ROOT / path.relative_to(marker)
+    return path
 # ------------------------------------------------------------
 # Few-shot examples for doc1 / doc2 generation
 # ------------------------------------------------------------
@@ -897,18 +907,19 @@ def run_batch_inference_no_trace(data, model, tokenizer, sampling_params, fout):
         flush_batch_no_trace(batch_inputs)
 
 def main(args):
-    input_path = Path(args.input_path)
+    input_path = resolve_readme_path(args.input_path)
     if "clean_qwq.json" in args.input_path:
         m="qwq"
     elif "clean_deepseek_32b.json" in args.input_path:
         m="deepseek_32b"
-    output_path = Path(f"/home/work/Redteaming/Rag_uni/datasets/{args.dataset}_poisoned_corpus/WEBTHINKER_CHANWOO_{args.type}_{m}.jsonl")
+    output_tag = "BAIT_DOC" if args.type == "ours" else args.type
+    output_path = WEBTHINKER_ROOT / "datasets" / f"{args.dataset}_poisoned_corpus" / f"WEBTHINKER_{output_tag}_{m}.jsonl"
 
     # 모델 로드 (vLLM 방식)
     model = None
     tokenizer = None
     if args.type in ("ours","poisonedRAG","topicattack","paradox","ours_only_query","ours_no_trace"):
-        model_id = "/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--Qwen3-30B-A3B-Instruct-2507/snapshots/0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe"
+        model_id = os.environ.get("KIDNAPRAG_ATTACKER_MODEL", "Qwen/Qwen3-30B-A3B-Instruct-2507")
 
         max_len = 25000*args.gpu_num
         model = LLM(
@@ -1472,7 +1483,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, default="hotpotqa")
     parser.add_argument("--gpu_num", type=int, default=4)
     parser.add_argument("--dry_run", action="store_true", default=False)
-    parser.add_argument("--input_path", type=str,default="/home/work/Redteaming/Rag_uni/results/webthinker/seed1_clean_results_qwen3-30b-instruct.json")
+    parser.add_argument("--input_path", type=str, default="/KidnapRAG/Webthinker/results/hotpotqa/clean_qwq.json")
     args = parser.parse_args()
     main(args)
 

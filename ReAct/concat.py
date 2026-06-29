@@ -19,7 +19,7 @@ suffix = (
 
 scene_list=["BM","BCM","BCCM","BCCCM","BCCCCM"]
 if args.mode == "ours":
-    for i in range scene_list:
+    for i in scene_list:
         add_file = f"./datasets/Chain_Link_and_Mal_Ins_DOCS/{i}.jsonl"
 
         output_file = f"./datasets/{args.dataset}/REACT_{i}_{args.gen_model}.jsonl"

@@ -6,12 +6,23 @@ import json
 import torch
 import tqdm
 from typing import List, Dict
+from pathlib import Path
 
 # Add src to path to import models.encoder
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../src'))
 
 from models.encoder import SimpleEncoder
 from logger_config import logger
+
+REACT_ROOT = Path(__file__).resolve().parents[1]
+KIDNAP_ROOT = REACT_ROOT.parent
+
+def resolve_readme_path(path_value: str) -> str:
+    path = Path(path_value).expanduser()
+    marker = Path("/KidnapRAG")
+    if path.is_absolute() and str(path).startswith(str(marker)):
+        return str(KIDNAP_ROOT / path.relative_to(marker))
+    return str(path)
 
 def load_jsonl(path: str) -> List[Dict]:
     logger.info(f"Loading corpus from {path}...")
@@ -31,6 +42,8 @@ def main():
     parser.add_argument('--shard_size', type=int, default=100000, help='Number of documents per shard')
     parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu')
     args = parser.parse_args()
+    args.corpus_path = resolve_readme_path(args.corpus_path)
+    args.output_dir = resolve_readme_path(args.output_dir)
 
     # Create output directory
     os.makedirs(args.output_dir, exist_ok=True)

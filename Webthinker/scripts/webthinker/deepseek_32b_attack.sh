@@ -1,33 +1,42 @@
 #!/bin/bash
 # Example script to run WebThinker agent
-# Note: Requires a running vLLM server compatible with OpenAI API
-# Usage: ./scripts/run_webthinker.sh
 
+set -e
 
 # Set Trap to kill background processes (vLLM launchers) on exit
-trap 'kill $(jobs -p)' EXIT
+trap 'kill $(jobs -p) 2>/dev/null || true' EXIT
+
+# Required arguments
+DATA_PATH="${1:?Missing DATA_PATH}"
+CORPUS_PATH="${2:?Missing CORPUS_PATH}"
+POISON_CORPUS_PATH="${3:?Missing POISON_CORPUS_PATH}"
+OUTPUT_PATH="${4:?Missing OUTPUT_PATH}"
 
 # Paths
-DATA_PATH="./datasets/hotpotqa/hotpotqa_promptinject_select.json"
-CORPUS_PATH="./datasets/hotpotqa_corpus/hotpotqa_corpus.jsonl"
-RETRIEVAL_MODEL="/home/work/Redteaming/data1/VIDEO_HALLUCINATION/hf_cache/hub/models--intfloat--e5-large-v2/snapshots/f169b11e22de13617baa190a028a32f3493550b6" # Can be local path
+RETRIEVAL_MODEL="intfloat/e5-large-v2" # Can be local path
 
 # vLLM Configuration as provided by user
 # Main Model: WebThinker (GPU 0)
-MAIN_MODEL_PATH="/home/work/Redteaming/data1/VIDEO_HALLUCINATION/hf_cache/hub/models--lixiaoxi45--WebThinker-R1-32B/snapshots/1d5a94775051939119b5a8d8ce7a4b155e30188f"
+MAIN_MODEL_PATH="lixiaoxi45/WebThinker-R1-32B"
 MAIN_MODEL_NAME="WebThinker-R1-32B"
 MAIN_PORT=8001
 MAIN_GPU="0"
 
 # Aux Model: Qwen (GPU 1)
-AUX_MODEL_PATH="/home/work/Redteaming/data1/REDTEAMING_LLM/cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+AUX_MODEL_PATH="Qwen/Qwen2.5-32B-Instruct"
 AUX_MODEL_NAME="Qwen2.5-32B-Instruct"
 AUX_PORT=8002
 AUX_GPU="1"
 
+mkdir -p logs
+
 echo "========================================================"
 echo "Starting vLLM Orchestration for WebThinker"
 echo "========================================================"
+echo "[Script] DATA_PATH: $DATA_PATH"
+echo "[Script] CORPUS_PATH: $CORPUS_PATH"
+echo "[Script] POISON_CORPUS_PATH: $POISON_CORPUS_PATH"
+echo "[Script] OUTPUT_PATH: $OUTPUT_PATH"
 
 # Launch Main Model
 python3 scripts/launch_vllm.py \
@@ -67,10 +76,6 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "[Script] Servers Ready! Starting Attack..."
-
-
-POISON_CORPUS_PATH="${1:?Missing POISON_CORPUS_PATH}"
-OUTPUT_PATH="${2:?Missing OUTPUT_PATH}"
 
 CUDA_VISIBLE_DEVICES=0,1,2 python3 scripts/run_attack.py \
     --model webthinker \

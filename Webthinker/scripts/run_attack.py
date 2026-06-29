@@ -8,6 +8,7 @@ import torch
 import numpy as np
 import random
 from typing import List, Dict
+from pathlib import Path
 
 # Add project root to sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -21,6 +22,18 @@ from models.webthinker import WebThinkerAgent
 from models.search_o1 import SearchO1Agent
 from src.retrieval import indexer
 from src.evaluation.metrics import f1_score, exact_match_score, check_asr
+
+WEBTHINKER_ROOT = Path(__file__).resolve().parents[1]
+KIDNAP_ROOT = WEBTHINKER_ROOT.parent
+
+def resolve_readme_path(path_value):
+    if not path_value:
+        return path_value
+    path = Path(path_value).expanduser()
+    marker = Path("/KidnapRAG")
+    if path.is_absolute() and str(path).startswith(str(marker)):
+        return str(KIDNAP_ROOT / path.relative_to(marker))
+    return str(path)
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Unified Attack Runner for RAG Experiments")
@@ -106,6 +119,12 @@ def load_data(path, max_samples=-1):
 
 def main():
     args = parse_args()
+    args.data_path = resolve_readme_path(args.data_path)
+    args.output_path = resolve_readme_path(args.output_path)
+    args.index_dir = resolve_readme_path(args.index_dir)
+    args.corpus_path = resolve_readme_path(args.corpus_path)
+    args.poisoned_index_dir = resolve_readme_path(args.poisoned_index_dir)
+    args.poisoned_corpus_path = resolve_readme_path(args.poisoned_corpus_path)
     set_seed(args.seed)
     
     # Setup Output Directory
