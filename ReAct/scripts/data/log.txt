@@ -1,0 +1,7 @@
+[2026-01-28 01:21:35,078 INFO] Loading corpus from /home/work/Redteaming/rag-exp/datasets/hotpotqa/poisoned_generator_corpus_shard_chanwoo.jsonl...
+[2026-01-28 01:21:35,087 INFO] Loaded 1500 documents.
+[2026-01-28 01:21:35,087 INFO] Initializing Encoder: /home/work/Redteaming/data1/VIDEO_HALLUCINATION/hf_cache/hub/models--intfloat--e5-large-v2/snapshots/f169b11e22de13617baa190a028a32f3493550b6
+[2026-01-28 01:21:40,833 INFO] Starting encoding with shard size 100000...
+[2026-01-28 01:21:40,834 INFO] Encoding shard 0: docs 0 to 1500
+[2026-01-28 01:21:44,314 INFO] Saved shard 0 to /home/work/Redteaming/rag-exp/datasets/hotpotqa/e5_index_chanwoo_poisoned/embedding-shard-0.pt
+[2026-01-28 01:21:44,315 INFO] Indexing completed successfully.

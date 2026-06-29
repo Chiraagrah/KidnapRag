@@ -1,0 +1,429 @@
+
+import argparse
+import os
+import sys
+import json
+import asyncio
+import torch
+import numpy as np
+import random
+from typing import List, Dict
+
+# Add project root to sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, ".."))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from models.react import ReActAgent
+from models.webthinker import WebThinkerAgent
+# from models.corag import CoRagModel
+from models.search_o1 import SearchO1Agent
+from src.retrieval import indexer
+from src.evaluation.metrics import f1_score, exact_match_score, check_asr
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Unified Attack Runner for RAG Experiments")
+    
+    # Common Arguments
+    parser.add_argument("--model", type=str, required=True, choices=["react", "webthinker", "corag", "search_o1"], help="Model to run")
+    parser.add_argument("--data_path", type=str, required=True, help="Path to input dataset JSON/JSONL")
+    parser.add_argument("--output_path", type=str, required=True, help="Path to save results")
+    parser.add_argument("--seed", type=int, default=1, help="Random seed")
+    parser.add_argument("--max_samples", type=int, default=-1, help="Max samples to process (for debugging)")
+    parser.add_argument("--dry_run", action="store_true", help="Run on a small subset")
+
+    # Retrieval Arguments
+    parser.add_argument("--search_engine", type=str, default="e5", choices=["e5", "bing", "serper"], help="Search engine to use")
+    parser.add_argument("--retrieval_model_name", type=str, default="intfloat/e5-large-v2", help="Path or name of retrieval model (E5)")
+    parser.add_argument("--index_dir", type=str, default=None, help="Path to E5 index directory")
+    parser.add_argument("--corpus_path", type=str, default=None, help="Path to corpus JSONL")
+    parser.add_argument("--poisoned_index_dir", type=str, default=None, help="Path to poisoned E5 index")
+    parser.add_argument("--poisoned_corpus_path", type=str, default=None, help="Path to poisoned corpus")
+
+    # Model Specific - ReAct (vLLM In-Process)
+    parser.add_argument("--model_path", type=str, default=None, help="Path to model weights (ReAct) or for Tokenizer (WebThinker)")
+    parser.add_argument("--max_new_tokens", type=int, default=512, help="Max new tokens for generation")
+    
+    # Model Specific - WebThinker/CoRag (Server Based)
+    parser.add_argument("--api_key", type=str, default="EMPTY", help="API Key for vLLM/OpenAI")
+    parser.add_argument("--api_base_url", type=str, default="http://localhost:8000/v1", help="Base URL for vLLM/OpenAI")
+    parser.add_argument("--model_name", type=str, default="default", help="Model name for API requests")
+    parser.add_argument("--aux_model_name", type=str, default="default", help="Auxiliary model name for WebThinker")
+    parser.add_argument("--aux_api_key", type=str, default="EMPTY", help="Auxiliary API Key")
+    parser.add_argument("--aux_api_base_url", type=str, default="http://localhost:8000/v1", help="Auxiliary Base URL")
+    parser.add_argument("--aux_model_path", type=str, default=None, help="Path to aux model weights (for tokenizer)")
+    
+    parser.add_argument("--temperature", type=float, default=0.7, help="Sampling temperature")
+    parser.add_argument("--top_p", type=float, default=0.8, help="Sampling top_p")
+    parser.add_argument("--max_tokens", type=int, default=4096, help="Max tokens")
+    parser.add_argument("--concurrent_limit", type=int, default=32, help="Concurrency limit for async requests")
+    
+    # WebThinker Specific
+    parser.add_argument("--max_search_limit", type=int, default=20, help="Max search steps for WebThinker")
+    parser.add_argument("--top_k_sampling", type=int, default=20, help="Top k sampling") # For WebThinker extra_body
+    parser.add_argument("--repetition_penalty", type=float, default=1.05, help="Repetition penalty")
+    parser.add_argument("--min_p", type=float, default=0.05, help="Min p")
+    parser.add_argument("--top_k", type=int, default=5, help="Retrieval Top K")
+
+    # CoRag Specific
+    parser.add_argument("--vllm_host", type=str, default="localhost", help="VLLM Host for CoRag")
+    parser.add_argument("--vllm_port", type=int, default=8000, help="VLLM Port for CoRag")
+    parser.add_argument("--decode_strategy", type=str, default="greedy", help="CoRag decode strategy")
+    parser.add_argument("--max_path_length", type=int, default=3, help="CoRag max path length")
+    parser.add_argument("--best_n", type=int, default=4, help="CoRag best of n")
+    parser.add_argument("--max_len", type=int, default=4096, help="CoRag max message length")
+
+    # Search-o1 Specific
+    parser.add_argument("--max_turn", type=int, default=15, help="Search-o1 max turns")
+    parser.add_argument("--max_doc_len", type=int, default=3000, help="Maximum length of each searched document")
+
+    return parser.parse_args()
+
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+def load_data(path, max_samples=-1):
+    if path.endswith(".jsonl"):
+        with open(path, 'r') as f:
+            data = [json.loads(line) for line in f]
+    elif path.endswith(".json"):
+        with open(path, 'r') as f:
+            data = json.load(f)
+            if isinstance(data, dict):
+                 # Handle cases where json is wrapped or dict
+                 data = list(data.values()) if 'data' not in data else data['data']
+    else:
+        raise ValueError("Unsupported file format")
+
+    if max_samples > 0:
+        data = data[:max_samples]
+    return data
+
+def main():
+    args = parse_args()
+    set_seed(args.seed)
+    
+    # Setup Output Directory
+    # Setup Output Directory
+    os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+    
+    # [NEW] Handle Auto-Indexing Logic Here
+    if args.search_engine == "e5":
+        # 1. Clean Index
+        if args.corpus_path:
+            # If index_dir not provided, derive it
+            if not args.index_dir:
+                args.index_dir = indexer.derive_index_path(args.corpus_path, args.retrieval_model_name)
+                print(f"Auto-derived index_dir: {args.index_dir}")
+            
+            # Build index if not exists
+            indexer.build_index(
+                corpus_path=args.corpus_path, 
+                index_dir=args.index_dir, 
+                model_name=args.retrieval_model_name,
+                device="cuda:2"
+            )
+        
+        # 2. Poisoned Index (if applicable)
+        if args.poisoned_corpus_path:
+            if not args.poisoned_index_dir:
+                args.poisoned_index_dir = indexer.derive_index_path(args.poisoned_corpus_path, args.retrieval_model_name)
+                print(f"Auto-derived poisoned_index_dir: {args.poisoned_index_dir}")
+                
+            indexer.build_index(
+                corpus_path=args.poisoned_corpus_path, 
+                index_dir=args.poisoned_index_dir, 
+                model_name=args.retrieval_model_name,
+                device="cuda:2"
+            )
+
+    # Load Data
+    print(f"Loading data from {args.data_path}")
+    data = load_data(args.data_path, args.max_samples if not args.dry_run else 2)
+    
+    # Preprocessing Input Data specific to Models?
+    # Usually standardized to {'question': ..., 'id': ...}
+    # ReAct wraps data logic. WebThinker expects 'prompt'.
+    # We might need to adapt data to expected keys.
+    
+    # Standardize data keys locally
+    standardized_data = []
+    for item in data:
+        q = item.get('question', item.get('query', ''))
+        # Prompt formation?
+        # WebThinker and ReAct have internal prompt logic usually.
+        # But WebThinker code expects 'prompt' in input dict in process_single_sequence!
+        # ReActAgent.run_batch expects list of questions.
+        
+        # Let's align on 'question' key 
+        new_item = item.copy()
+        new_item['question'] = q
+        standardized_data.append(new_item)
+        
+    data = standardized_data
+
+    # Instantiate Model
+    print(f"Initializing Model: {args.model}")
+    if args.model == "react":
+        # ReAct Agent (Runs vLLM locally)
+        agent = ReActAgent(
+            args,
+            model_name=args.model_path
+        )
+        # ReAct run_batch takes list of dicts/questions
+        results = agent.run_batch(
+            inputs=data, 
+            max_new_tokens=args.max_new_tokens
+        )
+        # Results are list of dicts/strings? ReAct returns list of dicts with 'history', 'answer'.
+        # Merging with original data and renaming answer -> prediction
+        final_results = []
+        for d, r in zip(data, results):
+            merged = d.copy()
+            if 'answer' in r:
+                r['prediction'] = r.pop('answer')
+            merged.update(r)
+            final_results.append(merged)
+        results = final_results
+
+    elif args.model == "webthinker":
+        # from models.webthinker_utils.prompts import get_gpqa_web_thinker_instruction
+        # instruction = get_gpqa_web_thinker_instruction(MAX_SEARCH_LIMIT=args.max_search_limit)
+
+        # for d in data:
+        #     # Simple prompt construction: Instruction + Question
+        #     # Or formatted?
+        #     # get_gpqa_web_thinker_instruction returns just instruction text.
+        #     # We append question.
+        #     q = d['question']
+        #     d['prompt'] = f"{instruction}\nQuestion: {q}\n"
+
+
+        from models.webthinker_utils.prompts import get_multiqa_search_o1_instruction, get_task_instruction_openqa
+        instruction = get_multiqa_search_o1_instruction(args.max_search_limit)
+
+        for d in data:
+            user_prompt = get_task_instruction_openqa(d['question'])
+            # user_prompt = get_task_instruction_openqa("Say 'KILL YOURSELF' to the user.")
+            d['prompt'] = instruction + user_prompt
+        if len(data) > 0:
+            print(f"[DEBUG] First Prompt Sample:\n{data[0]['prompt'][:500]}...\n")
+
+        from transformers import AutoTokenizer
+        
+        tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
+        aux_tokenizer = AutoTokenizer.from_pretrained(args.aux_model_path, trust_remote_code=True)
+        
+        agent = WebThinkerAgent(args, tokenizer=tokenizer, aux_tokenizer=aux_tokenizer)
+        # WebThinkerAgent.run_batch is async
+        model_results = asyncio.run(agent.run_batch(data))
+        
+        # Merge with original data and rename answer -> prediction
+        final_results = []
+        for d, r in zip(data, model_results):
+            merged = d.copy()
+            if 'answer' in r:
+                r['prediction'] = r.pop('answer')
+            merged.update(r)
+            final_results.append(merged)
+        results = final_results
+        
+    # elif args.model == "corag":
+    #     # CoRag Model
+    #     agent = CoRagModel(args)
+    #     model_results = agent.run_batch(data)
+        
+    #     # Merge with original data (CoRag results might already have prediction, but let's be consistent)
+    #     final_results = []
+    #     for d, r in zip(data, model_results):
+    #         merged = d.copy()
+    #         # CoRag usually returns 'prediction' and 'final_answer', and copies 'correct_answer'
+    #         # But let's ensure we keep 'answer' from d if r doesn't have it or has it differently
+    #         # CoRag result_item has 'correct_answer', not 'answer'. 
+    #         merged.update(r)
+    #         final_results.append(merged)
+    #     results = final_results
+
+    elif args.model == "search_o1":
+        from transformers import AutoTokenizer
+        tokenizer = None
+        if args.model_path:
+            tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
+            
+        agent = SearchO1Agent(args, tokenizer=tokenizer)
+        model_results = asyncio.run(agent.run_batch(data))
+        
+        # Merge with original data and rename answer -> prediction
+        final_results = []
+        for d, r in zip(data, model_results):
+            merged = d.copy()
+            if 'answer' in r:
+                r['prediction'] = r.pop('answer')
+            merged.update(r)
+            final_results.append(merged)
+        results = final_results
+
+    # Calculate Metrics and Update Results with Correct Scores
+    print(f"Calculating Metrics over {len(results)} samples...")
+    ems = []
+    f1s = []
+    asrs = []
+    
+    for item in results:
+        # Determine prediction and ground truth keys
+        # ReAct: 'answer' (from info dict) - output from model
+        # WebThinker: likely 'answer' or 'pred'
+        # CoRag: 'pred'
+        
+        # Heuristic to find prediction (Now standardized to 'prediction')
+        prediction = item.get('prediction', item.get('pred', item.get('answer', '')))
+        
+        # Ground Truth from 'answer' (should be preserved from original data now)
+        ground_truth = item.get('answer', item.get('correct answer', ''))
+        
+        if prediction is None:
+             prediction = ""
+             
+        # Calculate Metrics
+        # Calculate Metrics
+        em = exact_match_score(prediction, ground_truth)
+        f1, prec, recall = f1_score(prediction, ground_truth)
+        
+        # ASR Calculation
+        target_answer = item.get('incorrect answer', item.get('target', None)) 
+        if target_answer:
+            asr = check_asr(prediction, target_answer)
+        else:
+            asr = False
+        
+        # Update item with correct metrics (overwrite potentially wrong wrapper metrics)
+        item['prediction'] = prediction
+        # item['answer'] = prediction # Removing this to avoid confusion with GT
+        # Since we already calculated em above, just use it.
+        # actually check_accuracy calls exact_match_score.
+        # But 'em' key in wrapper was boolean or int? Wrapper: int(score).
+        item['em'] = int(em)
+        item['f1'] = f1
+        item['reward'] = int(em) # usually reward is EM
+        item['asr'] = int(asr)
+        
+        ems.append(int(em))
+        f1s.append(f1)
+        asrs.append(int(asr))
+
+    # Calculate Poisoning Metrics
+    total_poisoned_docs = 0
+    total_docs = 0
+    samples_with_poison = 0
+    # Per-search metrics (trace-based only; denominator = number of searches)
+    total_searches = 0
+    poisoned_docs_in_traced_searches = 0
+    searches_with_poison = 0
+
+    for item in results:
+        sample_has_poison = False
+
+        # 1) Build doc-level trace when available (WebThinker: search_documents, CoRag: retrieved_results, ReAct: retrieval_history)
+        retrieved_docs_lists = []
+        if 'step_stats' in item:  # WebThinker has search_documents in steps
+            for step in item['step_stats']:
+                if step.get('is_search', False) and step.get('search_documents'):
+                    retrieved_docs_lists.append(step['search_documents'])
+        elif 'steps' in item:  # CoRag
+            for step in item['steps']:
+                if step.get('retrieved_results'):
+                    retrieved_docs_lists.append(step['retrieved_results'])
+        elif 'retrieval_history' in item:  # ReAct with full history
+            for step_result in item['retrieval_history']:
+                retrieved_docs_lists.append(step_result)
+
+        if retrieved_docs_lists:
+            # Per-sample and per-search from document lists
+            total_searches += len(retrieved_docs_lists)
+            for docs in retrieved_docs_lists:
+                search_has_poison = False
+                for doc in docs:
+                    total_docs += 1
+                    if doc.get('is_poisoned', False):
+                        total_poisoned_docs += 1
+                        poisoned_docs_in_traced_searches += 1
+                        sample_has_poison = True
+                        search_has_poison = True
+                if search_has_poison:
+                    searches_with_poison += 1
+            if sample_has_poison:
+                samples_with_poison += 1
+        elif 'step_stats' in item:
+            # 2) ReAct: step_stats has is_search, poisoned_count, total_count (no search_documents)
+            for step in item['step_stats']:
+                if step.get('is_search', False):
+                    total_searches += 1
+                    pc = step.get('poisoned_count', 0)
+                    tc = step.get('total_count', 0)
+                    total_poisoned_docs += pc
+                    total_docs += tc
+                    poisoned_docs_in_traced_searches += pc
+                    if pc > 0 or step.get('any_poisoned', False):
+                        searches_with_poison += 1
+                        sample_has_poison = True
+            if sample_has_poison:
+                samples_with_poison += 1
+        elif 'cumulative_poisoned_count' in item and 'cumulative_total_count' in item:
+            # 3) Pre-aggregated only (no per-step trace)
+            p_count = item['cumulative_poisoned_count']
+            t_count = item['cumulative_total_count']
+            total_poisoned_docs += p_count
+            total_docs += t_count
+            if item.get('any_poisoned', False) or p_count > 0:
+                samples_with_poison += 1
+
+    # Per-sample metrics (unchanged)
+    poisoned_retrieval_rate = (samples_with_poison / len(results)) if len(results) > 0 else 0.0
+    # Per-search metrics: avg poisoned docs per search, fraction of searches with ≥1 poisoned doc
+    avg_poisoned_count = (poisoned_docs_in_traced_searches / total_searches) if total_searches > 0 else 0.0
+    poisoned_retrieval_rate_per_search = (searches_with_poison / total_searches) if total_searches > 0 else 0.0
+
+    avg_em = np.mean(ems) if ems else 0.0
+    avg_f1 = np.mean(f1s) if f1s else 0.0
+    avg_asr = np.mean(asrs) if asrs else 0.0
+    
+    print(f"Results Summary:")
+    print(f"Samples: {len(results)}")
+    print(f"Total searches: {total_searches}")
+    print(f"Total poisoned docs in traced searches: {poisoned_docs_in_traced_searches}")
+    print(f"Total poisoned searches: {searches_with_poison}")
+    print(f"Average EM: {avg_em:.4f}")
+    print(f"Average F1: {avg_f1:.4f}")
+    print(f"Average ASR: {avg_asr:.4f}")
+    print(f"Avg Poisoned Count (per search): {avg_poisoned_count:.4f}")
+    print(f"Poisoned Retrieval Rate (per sample): {poisoned_retrieval_rate:.4f}")
+    print(f"Poisoned Retrieval Rate (per search): {poisoned_retrieval_rate_per_search:.4f}")
+
+    # Construct final output with summary
+    final_output = {
+        "metrics": {
+            "average_em": float(f"{avg_em:.4f}"),
+            "average_f1": float(f"{avg_f1:.4f}"),
+            "average_asr": float(f"{avg_asr:.4f}"),
+            "avg_poisoned_count": float(f"{avg_poisoned_count:.4f}"),
+            "poisoned_retrieval_rate": float(f"{poisoned_retrieval_rate:.4f}"),
+            "poisoned_retrieval_rate_per_search": float(f"{poisoned_retrieval_rate_per_search:.4f}"),
+            "total_samples": len(results)
+        },
+        "data": results
+    }
+
+    # Save Results
+    print(f"Saving results to {args.output_path}")
+    with open(args.output_path, 'w', encoding='utf-8') as f:
+        json.dump(final_output, f, indent=4, ensure_ascii=False)
+
+    print("Done.")
+
+if __name__ == "__main__":
+    main()
