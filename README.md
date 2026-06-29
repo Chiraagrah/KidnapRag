@@ -1,6 +1,6 @@
 # KidnapRAG: A Black-Box Attack for Hijacking Reasoning in Agentic Retrieval-Augmented Generation Systems
 
-### 🎓 [**Paper**](docs/pdf/paper.pdf) | 📄 [**Datasets**](https://drive.google.com/drive/folders/131k0Lz0s2I4eFlfmtzdd18lB44ovBDj8?usp=sharing)🚀 [**Quick Start**](#quick-start)
+### 🎓 [**Paper**](docs/pdf/paper.pdf) | 📄 [**Datasets**](https://drive.google.com/drive/folders/131k0Lz0s2I4eFlfmtzdd18lB44ovBDj8?usp=sharing) | 🚀 [**Quick Start**](#quick-start)
 
 <img src="docs/images/image.png" width="100%" />
 
