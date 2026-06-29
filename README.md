@@ -1,6 +1,6 @@
 # KidnapRAG: A Black-Box Attack for Hijacking Reasoning in Agentic Retrieval-Augmented Generation Systems
 
-### 🎓 [**Paper**](docs/pdf/paper.pdf) | 🚀 [**Quick Start**](#quick-start)
+### 🎓 [**Paper**](docs/pdf/paper.pdf) | 📄 [**Datasets**](https://drive.google.com/drive/folders/131k0Lz0s2I4eFlfmtzdd18lB44ovBDj8?usp=sharing)🚀 [**Quick Start**](#quick-start)
 
 <img src="docs/images/image.png" width="100%" />
 
@@ -14,6 +14,7 @@ conda create -n KidnapRAG python=3.10
 conda activate KidnapRAG
 pip install -r requirements.txt
 ```
+Then, download the datasets (corpus data) and move the ReAct dataset to `/KidnapRAG/ReAct` and the WebThinker dataset to `/KidnapRAG/WebThinker`.
 
 ### ReAct
 
