@@ -14,7 +14,7 @@ conda create -n KidnapRAG python=3.10
 conda activate KidnapRAG
 pip install -r requirements.txt
 ```
-Then, download the datasets (corpus data) and move the ReAct dataset to `/KidnapRAG/ReAct` and the WebThinker dataset to `/KidnapRAG/WebThinker`.
+Then, download the corpus datasets 📄 and move the ReAct dataset to `/KidnapRAG/ReAct` and the WebThinker dataset to `/KidnapRAG/WebThinker`
 
 ### ReAct
 
