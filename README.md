@@ -37,9 +37,9 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python attack_react.py --attack_method clean --mode
 CUDA_VISIBLE_DEVICES=0,1 python generate_attack_doc_kill.py --input_path /KidnapRAG/ReAct/results/adv_targeted_results/hotpotqa_seed1_clean_llama70b.json --gpu_num 2 --dataset hotpotqa --type ours
 ```
 
-`--type` additionally supports the following attack methods: `naive`, `ignore`, `completion_real`, `completion_realcmb`, `topicattack`, `poisonedRAG`, and `paradox`.
+`--type` additionally supports the following attack methods: `naive` for Naive Attack, `ignore` for Ignore Attack, `completion_real` for Fake Completion Attack, `completion_realcmb` for Combined Attack, `topicattack` for TopicAttack , `poisonedRAG` for PoisonedRAG, and `paradox` for RAG Paradox.
 
-3. Create five chain-dragging scenarios.
+3. Create five chain-dragging scenarios. (`BM`, `BCM`, `BCCM`, `BCCCM`, `BCCCCM`)
 
 ```sh
 cd ..
@@ -94,7 +94,7 @@ cd scripts
 CUDA_VISIBLE_DEVICES=0,1 python generate_attack_doc_kill.py --input_path /KidnapRAG/Webthinker/results/hotpotqa/clean_qwq.json --gpu_num 2 --dataset hotpotqa --type ours
 ```
 
-3. Create five chain-dragging scenarios.
+3. Create five chain-dragging scenarios. (`BM`, `BCM`, `BCCM`, `BCCCM`, `BCCCCM`)
 
 ```sh
 cd ..
