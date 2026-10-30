@@ -21,6 +21,11 @@ source /apps/easybuild/el9_5.x86_64/software/Miniforge3/24.11.3-0/etc/profile.d/
 conda activate KidnapRAG
 module load CUDA/12.8.0
 
+# Put the conda env's newer libstdc++ ahead of the system /lib64 one,
+# otherwise `import sqlite3` (via vllm->diskcache) fails with
+# "CXXABI_1.3.15 not found" because module load prepends a system lib path.
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+
 export HF_HOME=/project/ss797/cs757/.cache/huggingface
 export HUGGINGFACE_HUB_CACHE=$HF_HOME
 
