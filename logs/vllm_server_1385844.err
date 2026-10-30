@@ -1,0 +1,141 @@
+(EngineCore_DP0 pid=2105797) <frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore_DP0 pid=2105797) <frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore_DP0 pid=2105797) Process EngineCore_DP0:
+(EngineCore_DP0 pid=2105797) Traceback (most recent call last):
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore_DP0 pid=2105797)     self.run()
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/multiprocessing/process.py", line 108, in run
+(EngineCore_DP0 pid=2105797)     self._target(*self._args, **self._kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 1104, in run_engine_core
+(EngineCore_DP0 pid=2105797)     raise e
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 1090, in run_engine_core
+(EngineCore_DP0 pid=2105797)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 834, in __init__
+(EngineCore_DP0 pid=2105797)     super().__init__(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 110, in __init__
+(EngineCore_DP0 pid=2105797)     self.model_executor = executor_class(vllm_config)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 103, in __init__
+(EngineCore_DP0 pid=2105797)     self._init_executor()
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/executor/uniproc_executor.py", line 49, in _init_executor
+(EngineCore_DP0 pid=2105797)     self.driver_worker.load_model()
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 337, in load_model
+(EngineCore_DP0 pid=2105797)     self.model_runner.load_model(load_dummy_weights=dummy_weights)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 4271, in load_model
+(EngineCore_DP0 pid=2105797)     self.model = model_loader.load_model(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/base_loader.py", line 62, in load_model
+(EngineCore_DP0 pid=2105797)     self.load_weights(model, model_config)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/default_loader.py", line 290, in load_weights
+(EngineCore_DP0 pid=2105797)     loaded_weights = model.load_weights(self.get_all_weights(model_config, model))
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/qwen2.py", line 600, in load_weights
+(EngineCore_DP0 pid=2105797)     return loader.load_weights(weights)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/reload/torchao_decorator.py", line 50, in patched_model_load_weights
+(EngineCore_DP0 pid=2105797)     return original_load_weights(self, weights, *args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/utils.py", line 340, in load_weights
+(EngineCore_DP0 pid=2105797)     autoloaded_weights = set(self._load_module("", self.module, weights))
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/utils.py", line 278, in _load_module
+(EngineCore_DP0 pid=2105797)     for child_prefix, child_weights in self._groupby_prefix(weights):
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/utils.py", line 162, in _groupby_prefix
+(EngineCore_DP0 pid=2105797)     for prefix, group in itertools.groupby(weights_by_parts, key=lambda x: x[0][0]):
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/utils.py", line 157, in <genexpr>
+(EngineCore_DP0 pid=2105797)     weights_by_parts = (
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/models/utils.py", line 336, in <genexpr>
+(EngineCore_DP0 pid=2105797)     weights = (
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/default_loader.py", line 261, in get_all_weights
+(EngineCore_DP0 pid=2105797)     yield from self._get_weights_iterator(primary_weights)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/default_loader.py", line 190, in _get_weights_iterator
+(EngineCore_DP0 pid=2105797)     hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/default_loader.py", line 141, in _prepare_weights
+(EngineCore_DP0 pid=2105797)     hf_folder = download_weights_from_hf(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=2105797)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/model_executor/model_loader/weight_utils.py", line 543, in download_weights_from_hf
+(EngineCore_DP0 pid=2105797)     hf_folder = snapshot_download(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+(EngineCore_DP0 pid=2105797)     return fn(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+(EngineCore_DP0 pid=2105797)     thread_map(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+(EngineCore_DP0 pid=2105797)     return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+(EngineCore_DP0 pid=2105797)     return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/tqdm/std.py", line 1169, in __iter__
+(EngineCore_DP0 pid=2105797)     for obj in iterable:
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+(EngineCore_DP0 pid=2105797)     yield _result_or_cancel(fs.pop())
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+(EngineCore_DP0 pid=2105797)     return fut.result(timeout)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+(EngineCore_DP0 pid=2105797)     return self.__get_result()
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+(EngineCore_DP0 pid=2105797)     raise self._exception
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+(EngineCore_DP0 pid=2105797)     result = self.fn(*self.args, **self.kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+(EngineCore_DP0 pid=2105797)     return hf_hub_download(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+(EngineCore_DP0 pid=2105797)     return fn(*args, **kwargs)
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+(EngineCore_DP0 pid=2105797)     return _hf_hub_download_to_cache_dir(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1175, in _hf_hub_download_to_cache_dir
+(EngineCore_DP0 pid=2105797)     _download_to_tmp_and_move(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1727, in _download_to_tmp_and_move
+(EngineCore_DP0 pid=2105797)     xet_get(
+(EngineCore_DP0 pid=2105797)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 633, in xet_get
+(EngineCore_DP0 pid=2105797)     download_files(
+(EngineCore_DP0 pid=2105797) OSError: I/O error: IO Error: Disk quota exceeded (os error 122)
+[rank0]:[W1006 18:41:21.290502349 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+(APIServer pid=2105325) Traceback (most recent call last):
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/bin/vllm", line 6, in <module>
+(APIServer pid=2105325)     sys.exit(main())
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/cli/main.py", line 73, in main
+(APIServer pid=2105325)     args.dispatch_function(args)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/cli/serve.py", line 112, in cmd
+(APIServer pid=2105325)     uvloop.run(run_server(args))
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/uvloop/__init__.py", line 69, in run
+(APIServer pid=2105325)     return loop.run_until_complete(wrapper())
+(APIServer pid=2105325)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=2105325)     return await main
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/openai/api_server.py", line 471, in run_server
+(APIServer pid=2105325)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/openai/api_server.py", line 490, in run_server_worker
+(APIServer pid=2105325)     async with build_async_engine_client(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/contextlib.py", line 199, in __aenter__
+(APIServer pid=2105325)     return await anext(self.gen)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/openai/api_server.py", line 96, in build_async_engine_client
+(APIServer pid=2105325)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/contextlib.py", line 199, in __aenter__
+(APIServer pid=2105325)     return await anext(self.gen)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/openai/api_server.py", line 137, in build_async_engine_client_from_engine_args
+(APIServer pid=2105325)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/async_llm.py", line 225, in from_vllm_config
+(APIServer pid=2105325)     return cls(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/async_llm.py", line 154, in __init__
+(APIServer pid=2105325)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=2105325)     return func(*args, **kwargs)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 127, in make_async_mp_client
+(APIServer pid=2105325)     return AsyncMPClient(*client_args)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=2105325)     return func(*args, **kwargs)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 911, in __init__
+(APIServer pid=2105325)     super().__init__(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 569, in __init__
+(APIServer pid=2105325)     with launch_core_engines(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/contextlib.py", line 142, in __exit__
+(APIServer pid=2105325)     next(self.gen)
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 951, in launch_core_engines
+(APIServer pid=2105325)     wait_for_engine_startup(
+(APIServer pid=2105325)   File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 1010, in wait_for_engine_startup
+(APIServer pid=2105325)     raise RuntimeError(
+(APIServer pid=2105325) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

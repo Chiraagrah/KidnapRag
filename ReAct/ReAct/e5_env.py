@@ -13,6 +13,7 @@ class E5WikiEnv(WikiEnv):
         self.last_search_poisoned_count = 0
         self.last_search_total_count = 0
         self.last_search_poisoned_flags = []  # 각 문서별 poisoned 여부 리스트
+        self.last_search_results = []  # [read-only diagnostic] raw ranked docs from the last search
 
     def _get_info(self):
         info = super()._get_info()
@@ -21,7 +22,8 @@ class E5WikiEnv(WikiEnv):
             "any_poisoned": self.any_poisoned_retrieved,
             "poisoned_count": self.last_search_poisoned_count,
             "total_count": self.last_search_total_count,
-            "poisoned_flags": self.last_search_poisoned_flags  # 각 문서별 poisoned 여부 리스트
+            "poisoned_flags": self.last_search_poisoned_flags,  # 각 문서별 poisoned 여부 리스트
+            "retrieved_docs": self.last_search_results  # [read-only diagnostic] ranked docs for MIS analysis
         })
         return info
 
@@ -31,6 +33,7 @@ class E5WikiEnv(WikiEnv):
         self.last_search_poisoned_count = 0
         self.last_search_total_count = 0
         self.last_search_poisoned_flags = []
+        self.last_search_results = []
         return super().reset(seed=seed, return_info=return_info, options=options)
 
     def search_step(self, entity):
@@ -44,8 +47,9 @@ class E5WikiEnv(WikiEnv):
         print("-"*50)
 
         
+        self.last_search_results = results  # [read-only diagnostic] stash ranked docs (may be [])
         if not results:
-            self.obs = f"Could not find {entity}. Similar: []." 
+            self.obs = f"Could not find {entity}. Similar: []."
             self.page = ""
             self.last_search_poisoned = False
             self.last_search_poisoned_count = 0

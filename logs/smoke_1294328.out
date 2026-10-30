@@ -1,0 +1,71 @@
+imports OK
+CUDA: True
+usage: attack_react.py [-h] [--dry_run] [--base]
+                       [--attack_method ATTACK_METHOD] [--seed SEED]
+                       [--model_path MODEL_PATH] [--dataset DATASET]
+
+options:
+  -h, --help            show this help message and exit
+  --dry_run             Run only the first sample
+  --base                Run with clean corpus only (Disable poisoned corpus)
+  --attack_method ATTACK_METHOD
+  --seed SEED
+  --model_path MODEL_PATH
+  --dataset DATASET
+-rw-r--r--+ 1 cs757 cs757 2149313046 Sep 17 21:25 ../datasets/hotpotqa/corpus.jsonl
+total 10470018
+drwx------+ 2 cs757 cs757      4096 Sep 17 21:33 .
+drwxr-xr-x+ 3 cs757 cs757      4096 Sep 17 21:24 ..
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:25 embedding-shard-0.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:25 embedding-shard-10.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:25 embedding-shard-11.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:25 embedding-shard-12.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:25 embedding-shard-13.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-14.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-15.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-16.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-17.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-18.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:26 embedding-shard-19.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:25 embedding-shard-1.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-20.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-21.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-22.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-23.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-24.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:27 embedding-shard-25.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:28 embedding-shard-26.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:28 embedding-shard-27.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:28 embedding-shard-28.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:28 embedding-shard-29.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:26 embedding-shard-2.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:28 embedding-shard-30.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:29 embedding-shard-31.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:29 embedding-shard-32.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:29 embedding-shard-33.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:29 embedding-shard-34.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:29 embedding-shard-35.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:30 embedding-shard-36.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:30 embedding-shard-37.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:30 embedding-shard-38.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:30 embedding-shard-39.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:28 embedding-shard-3.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:30 embedding-shard-40.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-41.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-42.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-43.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-44.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-45.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:31 embedding-shard-46.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:32 embedding-shard-47.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:32 embedding-shard-48.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:32 embedding-shard-49.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:30 embedding-shard-4.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:32 embedding-shard-50.pt
+-rw-r--r--+ 1 cs757 cs757 204801654 Sep 17 21:32 embedding-shard-51.pt
+-rw-r--r--+ 1 cs757 cs757  68259446 Sep 17 21:32 embedding-shard-52.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:32 embedding-shard-5.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:33 embedding-shard-6.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:33 embedding-shard-7.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:33 embedding-shard-8.pt
+-rw-r--r--+ 1 cs757 cs757 204801647 Sep 17 21:33 embedding-shard-9.pt

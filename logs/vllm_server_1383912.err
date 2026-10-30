@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/home/cs757/.conda/envs/KidnapRAG/bin/vllm", line 6, in <module>
+    sys.exit(main())
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/cli/main.py", line 21, in main
+    import vllm.entrypoints.cli.serve
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/cli/serve.py", line 12, in <module>
+    from vllm.entrypoints.openai.api_server import (
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/entrypoints/openai/api_server.py", line 25, in <module>
+    from vllm.engine.protocol import EngineClient
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/engine/protocol.py", line 23, in <module>
+    from vllm.v1.engine.input_processor import InputProcessor
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/engine/input_processor.py", line 20, in <module>
+    from vllm.multimodal.encoder_budget import MultiModalBudget
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/multimodal/encoder_budget.py", line 10, in <module>
+    from vllm.v1.core.encoder_cache_manager import compute_mm_encoder_budget
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/core/encoder_cache_manager.py", line 9, in <module>
+    from vllm.v1.request import Request
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/request.py", line 24, in <module>
+    from vllm.v1.structured_output.request import StructuredOutputRequest
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/structured_output/__init__.py", line 19, in <module>
+    from vllm.v1.structured_output.backend_xgrammar import XgrammarBackend
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/structured_output/backend_xgrammar.py", line 20, in <module>
+    from vllm.v1.structured_output.utils import (
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/vllm/v1/structured_output/utils.py", line 15, in <module>
+    from diskcache import Cache
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/diskcache/__init__.py", line 8, in <module>
+    from .core import (
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/site-packages/diskcache/core.py", line 14, in <module>
+    import sqlite3
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/sqlite3/__init__.py", line 57, in <module>
+    from sqlite3.dbapi2 import *
+  File "/home/cs757/.conda/envs/KidnapRAG/lib/python3.10/sqlite3/dbapi2.py", line 27, in <module>
+    from _sqlite3 import *
+ImportError: /lib64/libstdc++.so.6: version `CXXABI_1.3.15' not found (required by /home/cs757/.conda/envs/KidnapRAG/lib/python3.10/lib-dynload/../.././libicui18n.so.78)

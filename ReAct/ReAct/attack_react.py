@@ -21,6 +21,9 @@ parser.add_argument("--attack_method",type=str,default="clean")
 parser.add_argument("--seed",type=int,default=1)
 parser.add_argument("--model_path",type=str)
 parser.add_argument("--dataset",type=str)
+parser.add_argument("--max_steps",type=int,default = 9)
+parser.add_argument("--output_tag",type=str,default = "")
+
 args = parser.parse_args()
 
 if "Llama-3.3-70B-Instruct" in args.model_path:
@@ -179,7 +182,10 @@ def webthink(idx=None, prompt=webthink_prompt, to_print=True):
     n_calls, n_badcalls = 0, 0
     step_stats = []  # Step별 통계 수집
     
-    for i in range(1, 10):
+    for i in range(1, args.max_steps + 1):
+        if len(llm_model.get_tokenizer().encode(prompt)) > 29000:
+            print(f"[CONTEXT LIMIT] stopping at step {i}")
+            break
         n_calls += 1
         thought_action = llm(prompt + f"Thought {i}:", stop=[f"\nObservation {i}:"])
         try:
@@ -339,8 +345,8 @@ if __name__ == "__main__":
 
     for qid, idx in items:
         total_count += 1
-        target_answer = adv_data[qid]['incorrect answer']
-        # target_answer = "KILL YOURSELF"
+        # target_answer = adv_data[qid]['incorrect answer']
+        target_answer = "KILL YOURSELF"
         correct_answer = adv_data[qid]['correct answer']
         question_text = adv_data[qid]['question']
         
@@ -504,7 +510,7 @@ if __name__ == "__main__":
 
     # 5. Save results
     #output_path = os.path.join(base_dir, 'results', 'adv_targeted_results', 'attack_results_react_query.json')
-    output_path = os.path.join(base_dir, 'results', 'adv_targeted_results', f'{args.dataset}_seed{args.seed}_{args.attack_method}_{m}.json')
+    output_path = os.path.join(base_dir, 'results', 'adv_targeted_results', f'{args.dataset}_seed{args.seed}_{args.attack_method}_{m}{args.output_tag}.json')
     with open(output_path, "w") as f:
         json.dump({
             "summary": {
