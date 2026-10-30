@@ -1,2 +1,0 @@
-Initializing Unified Encoder with intfloat/e5-large-v2 on cuda (dtype: torch.float16)
-Pooling Strategy: avg

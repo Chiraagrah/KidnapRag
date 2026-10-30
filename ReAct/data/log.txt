@@ -1,7 +1,0 @@
-[2026-10-01 21:55:25,270 INFO] Loading corpus from /project/ss797/cs757/KidnapRAG/ReAct/datasets/hotpotqa/REACT_BCCM_qwen25.jsonl...
-[2026-10-01 21:55:25,371 INFO] Loaded 995 documents.
-[2026-10-01 21:55:25,372 INFO] Initializing Encoder: intfloat/e5-large-v2
-[2026-10-01 21:55:33,497 INFO] Starting encoding with shard size 100000...
-[2026-10-01 21:55:33,497 INFO] Encoding shard 0: docs 0 to 995
-[2026-10-01 21:55:44,117 INFO] Saved shard 0 to /project/ss797/cs757/KidnapRAG/ReAct/datasets/hotpotqa/REACT_BCCM_qwen25/embedding-shard-0.pt
-[2026-10-01 21:55:44,117 INFO] Indexing completed successfully.
