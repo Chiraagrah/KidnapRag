@@ -1,0 +1,34 @@
+{
+  "config": {
+    "dataset": "hotpotqa",
+    "model": "Qwen/Qwen2.5-32B-Instruct",
+    "seed": 1,
+    "max_steps": 15,
+    "beta": 0.5,
+    "nli_model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+    "k_docs": 5,
+    "scenario": "clean/no-attack"
+  },
+  "n_questions": 1,
+  "aggregation_A_per_loop_index": {
+    "1": {
+      "n_questions": 1,
+      "mean_weakness": 0.6,
+      "mean_excluded_fraction": 0.6,
+      "mean_edge_density": 0.6,
+      "mean_mis_size": 2.0
+    },
+    "2": {
+      "n_questions": 1,
+      "mean_weakness": 0.0,
+      "mean_excluded_fraction": 0.0,
+      "mean_edge_density": 0.0,
+      "mean_mis_size": 5.0
+    }
+  },
+  "weakest_loop_index_overall": null,
+  "aggregation_B_per_question_weakest_loop_distribution": {
+    "1": 1
+  },
+  "time_sec": 44.5
+}
