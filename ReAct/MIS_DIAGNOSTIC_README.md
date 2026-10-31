@@ -67,6 +67,15 @@ Notes
 Weakness scalar = `1 - |MIS|/k` (k=5). Higher = the retrieved set fractured into
 contradicting camps = weaker, easier-to-hijack loop.
 
+Both aggregations also carry an **NLI-only** column (`*_nli_only` /
+`weakest_loop_index_overall_nli_only`): weakness recomputed from NLI edges alone
+(`contra_prob >= beta`) with unknowns treated as neutral — the original
+ReliabilityRAG rule. On clean HotpotQA the unknown rule saturates weakness near
+the 0.8 ceiling, so this column keeps the raw-NLI fracture signal for comparison.
+It is emitted natively by new runs; to add it to an already-finished run, use
+`scripts/add_nli_only_weakness.py` (recomputes it from the stored `contra_matrix`,
+no model re-run).
+
 ### Relevance: "unknown" answers count as contradictions (default)
 A doc whose isolated answer is `unknown` could not answer the sub-query — it is
 irrelevant to this loop. By default such a doc is forced to **contradict every

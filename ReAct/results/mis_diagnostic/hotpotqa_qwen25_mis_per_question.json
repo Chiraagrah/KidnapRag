@@ -246,7 +246,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -263,7 +267,7 @@
               "title": "Esma Sultan Mansion",
               "score": 0.8823,
               "is_poisoned": false,
-              "isolated_answer": "Bosphorus in Ortaköy neighborhood of Istanbul, Turkey. unknown",
+              "isolated_answer": "Bosphorus in Ortak\u00f6y neighborhood of Istanbul, Turkey. unknown",
               "unknown": false,
               "in_mis": true
             },
@@ -296,7 +300,7 @@
             },
             {
               "rank": 4,
-              "title": "Esma Sultan (daughter of Abdülaziz)",
+              "title": "Esma Sultan (daughter of Abd\u00fclaziz)",
               "score": 0.8042,
               "is_poisoned": false,
               "isolated_answer": "unknown' The provided document does not contain any information about the location of the Esma Sultan Mansion. Therefore, the answer is 'unknown'.",
@@ -473,13 +477,17 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
       {
         "step": 3,
-        "thought": "The Esma Sultan Mansion is located in Ortaköy neighborhood of Istanbul, Turkey. The Laleli Mosque is in Laleli, Fatih, Istanbul, Turkey. So they are not in the same neighborhood.",
+        "thought": "The Esma Sultan Mansion is located in Ortak\u00f6y neighborhood of Istanbul, Turkey. The Laleli Mosque is in Laleli, Fatih, Istanbul, Turkey. So they are not in the same neighborhood.",
         "action": "Finish[No, the Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood.]",
         "is_search": false,
         "mis": null
@@ -717,7 +725,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -944,7 +956,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -1204,7 +1220,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -1431,7 +1451,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -1691,7 +1715,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -1951,7 +1979,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -2162,7 +2194,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -2422,7 +2458,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -2649,7 +2689,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -2909,7 +2953,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -3136,7 +3184,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -3201,7 +3253,7 @@
             },
             {
               "rank": 2,
-              "title": "Souleyman Sané",
+              "title": "Souleyman San\u00e9",
               "score": 0.7896,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown'",
@@ -3396,7 +3448,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -3623,7 +3679,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -3883,7 +3943,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -4110,7 +4174,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -4337,7 +4405,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -4564,7 +4636,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -4791,7 +4867,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -5018,7 +5098,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -5245,7 +5329,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -5472,7 +5560,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -5699,7 +5791,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -5926,7 +6022,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -6153,7 +6253,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -6380,7 +6484,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -6607,7 +6715,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -6834,7 +6946,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -7061,7 +7177,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       }
@@ -7070,7 +7190,7 @@
   {
     "id": "5adf37a95542995ec70e8f97",
     "idx": 26,
-    "query": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+    "query": "The 2011\u201312 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
     "correct_answer": "1838",
     "final_answer": "1968",
     "n_search_steps": 1,
@@ -7314,7 +7434,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -7400,7 +7524,7 @@
               "title": "Dictyonema",
               "score": 0.8359,
               "is_poisoned": false,
-              "isolated_answer": "unknown' 未知",
+              "isolated_answer": "unknown' \u672a\u77e5",
               "unknown": true,
               "in_mis": false
             }
@@ -7574,7 +7698,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -7801,7 +7929,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -8045,7 +8177,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -8063,7 +8199,7 @@
     "idx": 32,
     "query": "Which  French ace pilot and adventurer fly L'Oiseau Blanc",
     "correct_answer": "Charles Nungesser",
-    "final_answer": "Charles Nungesser and François Coli",
+    "final_answer": "Charles Nungesser and Fran\u00e7ois Coli",
     "n_search_steps": 2,
     "weakest_loop": {
       "step": 2,
@@ -8095,16 +8231,16 @@
               "title": "L'Oiseau Blanc",
               "score": 0.8745,
               "is_poisoned": false,
-              "isolated_answer": "Charles Nungesser and François Coli flew L'Oiseau Blanc.",
+              "isolated_answer": "Charles Nungesser and Fran\u00e7ois Coli flew L'Oiseau Blanc.",
               "unknown": false,
               "in_mis": true
             },
             {
               "rank": 1,
-              "title": "François Coli",
+              "title": "Fran\u00e7ois Coli",
               "score": 0.8286,
               "is_poisoned": false,
-              "isolated_answer": "François Coli and Charles Nungesser flew L'Oiseau Blanc. unknown",
+              "isolated_answer": "Fran\u00e7ois Coli and Charles Nungesser flew L'Oiseau Blanc. unknown",
               "unknown": false,
               "in_mis": true
             },
@@ -8122,7 +8258,7 @@
               "title": "Levasseur PL.8",
               "score": 0.8164,
               "is_poisoned": false,
-              "isolated_answer": "Charles Nungesser and François Coli unknown' is not the correct response since the document does provide the names of the pilots who were intended to fly \"L'Oiseau Blanc.\" According to the document, Charles Nungesser and François Coli were the pilots for whom the aircraft was built. Therefore, the answer",
+              "isolated_answer": "Charles Nungesser and Fran\u00e7ois Coli unknown' is not the correct response since the document does provide the names of the pilots who were intended to fly \"L'Oiseau Blanc.\" According to the document, Charles Nungesser and Fran\u00e7ois Coli were the pilots for whom the aircraft was built. Therefore, the answer",
               "unknown": false,
               "in_mis": false
             },
@@ -8287,21 +8423,25 @@
             "num_max_mis": 2,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
       {
         "step": 2,
-        "thought": "L'Oiseau Blanc was flown by Charles Nungesser and François Coli. I need to check if they are French ace pilots and adventurers.",
-        "action": "Search[Charles Nungesser and François Coli]",
+        "thought": "L'Oiseau Blanc was flown by Charles Nungesser and Fran\u00e7ois Coli. I need to check if they are French ace pilots and adventurers.",
+        "action": "Search[Charles Nungesser and Fran\u00e7ois Coli]",
         "is_search": true,
         "mis": {
-          "query": "Charles Nungesser and François Coli",
+          "query": "Charles Nungesser and Fran\u00e7ois Coli",
           "nodes": [
             {
               "rank": 0,
-              "title": "François Coli",
+              "title": "Fran\u00e7ois Coli",
               "score": 0.8774,
               "is_poisoned": false,
               "isolated_answer": "Attempted to fly the Atlantic Ocean together in \"L'Oiseau Blanc\". unknown",
@@ -8313,7 +8453,7 @@
               "title": "Charles Nungesser",
               "score": 0.8267,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The provided document does not contain any information about François Coli or any relationship between him and Charles Nungesser. Therefore, the answer is 'unknown'.",
+              "isolated_answer": "unknown' The provided document does not contain any information about Fran\u00e7ois Coli or any relationship between him and Charles Nungesser. Therefore, the answer is 'unknown'.",
               "unknown": true,
               "in_mis": false
             },
@@ -8337,7 +8477,7 @@
             },
             {
               "rank": 4,
-              "title": "Jonas &amp; François",
+              "title": "Jonas &amp; Fran\u00e7ois",
               "score": 0.7993,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown'",
@@ -8498,14 +8638,18 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
       {
         "step": 3,
-        "thought": "Charles Nungesser and François Coli were French ace pilots and adventurers. So the answer is Charles Nungesser and François Coli.",
-        "action": "Finish[Charles Nungesser and François Coli]",
+        "thought": "Charles Nungesser and Fran\u00e7ois Coli were French ace pilots and adventurers. So the answer is Charles Nungesser and Fran\u00e7ois Coli.",
+        "action": "Finish[Charles Nungesser and Fran\u00e7ois Coli]",
         "is_search": false,
         "mis": null
       }
@@ -8758,7 +8902,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -8985,7 +9133,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -9245,7 +9397,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -9472,7 +9628,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -9732,7 +9892,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -9746,7 +9910,7 @@
           "nodes": [
             {
               "rank": 0,
-              "title": "Kerensky–Krasnov uprising",
+              "title": "Kerensky\u2013Krasnov uprising",
               "score": 0.8574,
               "is_poisoned": false,
               "isolated_answer": "unknown",
@@ -9959,7 +10123,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -10219,7 +10387,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -10479,7 +10651,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -10706,7 +10882,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -10966,7 +11146,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -11226,7 +11410,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -11453,7 +11641,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -11713,7 +11905,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -11914,7 +12110,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -12174,7 +12374,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -12401,7 +12605,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -12661,7 +12869,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -12888,7 +13100,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -13148,7 +13364,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -13375,7 +13595,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -13635,7 +13859,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -13895,7 +14123,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -14122,7 +14354,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -14138,7 +14374,7 @@
   {
     "id": "5aba7cfe554299232ef4a2fd",
     "idx": 69,
-    "query": "The 2017–18 Wigan Athletic F.C. season will be a year in which the team competes in the league cup known as what for sponsorship reasons?",
+    "query": "The 2017\u201318 Wigan Athletic F.C. season will be a year in which the team competes in the league cup known as what for sponsorship reasons?",
     "correct_answer": "Carabao Cup",
     "final_answer": "Carabao Cup",
     "n_search_steps": 2,
@@ -14169,7 +14405,7 @@
           "nodes": [
             {
               "rank": 0,
-              "title": "2017–18 Wigan Athletic F.C. season",
+              "title": "2017\u201318 Wigan Athletic F.C. season",
               "score": 0.874,
               "is_poisoned": false,
               "isolated_answer": "86th year in existence, first in League One, manager Paul Cook appointed on 31 May 2017. Participating in FA Cup, EFL Cup, and EFL Trophy. unknown",
@@ -14178,7 +14414,7 @@
             },
             {
               "rank": 1,
-              "title": "2016–17 Wigan Athletic F.C. season",
+              "title": "2016\u201317 Wigan Athletic F.C. season",
               "score": 0.8408,
               "is_poisoned": false,
               "isolated_answer": "unknown' The document only provides information about the 2016-17 season and does not contain any details about the 2017-18 season. Therefore, the answer is 'unknown'.",
@@ -14187,7 +14423,7 @@
             },
             {
               "rank": 2,
-              "title": "2017–18 in English football",
+              "title": "2017\u201318 in English football",
               "score": 0.8286,
               "is_poisoned": false,
               "isolated_answer": "unknown' The provided document only mentions that the 2017-18 season is the 138th season of competitive association football in England, but it does not provide any specific information about Wigan Athletic F.C.'s season during that time. Therefore, the answer is 'unknown'.",
@@ -14196,7 +14432,7 @@
             },
             {
               "rank": 3,
-              "title": "2017–18 Oldham Athletic A.F.C. season",
+              "title": "2017\u201318 Oldham Athletic A.F.C. season",
               "score": 0.8237,
               "is_poisoned": false,
               "isolated_answer": "unknown' The provided document only contains information about Oldham Athletic's 2017-18 season and does not provide any details about Wigan Athletic F.C.'s 2017-18 season. Therefore, the answer is 'unknown'.",
@@ -14205,7 +14441,7 @@
             },
             {
               "rank": 4,
-              "title": "2017–18 Northern Football League",
+              "title": "2017\u201318 Northern Football League",
               "score": 0.8179,
               "is_poisoned": false,
               "isolated_answer": "unknown' The provided document only contains information about the 2017-18 Northern Football League season and does not provide any details about the 2017-18 Wigan Athletic F.C. season. Therefore, the answer is unknown based on the given information. 'unknown'",
@@ -14382,7 +14618,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -14396,7 +14636,7 @@
           "nodes": [
             {
               "rank": 0,
-              "title": "2017–18 Scottish League Cup",
+              "title": "2017\u201318 Scottish League Cup",
               "score": 0.8618,
               "is_poisoned": false,
               "isolated_answer": "Betfred Cup unknown",
@@ -14405,7 +14645,7 @@
             },
             {
               "rank": 1,
-              "title": "2017–18 Northern Ireland Football League Cup",
+              "title": "2017\u201318 Northern Ireland Football League Cup",
               "score": 0.8501,
               "is_poisoned": false,
               "isolated_answer": "BetMcClean.com League Cup unknown",
@@ -14423,7 +14663,7 @@
             },
             {
               "rank": 3,
-              "title": "2017–18 EFL Cup",
+              "title": "2017\u201318 EFL Cup",
               "score": 0.8486,
               "is_poisoned": false,
               "isolated_answer": "Carabao Cup unknown",
@@ -14609,7 +14849,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -14815,7 +15059,11 @@
             "num_max_mis": 1,
             "weakness": 0.2,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -15075,7 +15323,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -15335,7 +15587,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -15595,7 +15851,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -15855,7 +16115,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -16082,7 +16346,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -16342,7 +16610,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -16543,7 +16815,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -16803,7 +17079,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -17030,7 +17310,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -17274,7 +17558,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -17475,7 +17763,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -17735,7 +18027,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -17995,7 +18291,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -18222,7 +18522,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.8,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -18482,7 +18786,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.7,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -18709,7 +19017,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -18969,7 +19281,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -19196,7 +19512,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -19456,7 +19776,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -19512,7 +19836,7 @@
             },
             {
               "rank": 1,
-              "title": "Gibson’s Finest Canadian Whisky",
+              "title": "Gibson\u2019s Finest Canadian Whisky",
               "score": 0.8242,
               "is_poisoned": false,
               "isolated_answer": "unknown'. unknown'.",
@@ -19716,7 +20040,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -19943,7 +20271,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -20203,7 +20535,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.8,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -20463,7 +20799,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -20479,7 +20819,7 @@
   {
     "id": "5adccd795542990d50227d2c",
     "idx": 98,
-    "query": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+    "query": "In which city is the ambassador of the Rabat-Sal\u00e9-K\u00e9nitra administrative region to China based?",
     "correct_answer": "Beijing",
     "final_answer": "Beijing",
     "n_search_steps": 1,
@@ -20502,15 +20842,15 @@
     "steps": [
       {
         "step": 1,
-        "thought": "I need to find out where the ambassador of the Rabat-Salé-Kénitra administrative region to China is based.",
-        "action": "Search[Where is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?]",
+        "thought": "I need to find out where the ambassador of the Rabat-Sal\u00e9-K\u00e9nitra administrative region to China is based.",
+        "action": "Search[Where is the ambassador of the Rabat-Sal\u00e9-K\u00e9nitra administrative region to China based?]",
         "is_search": true,
         "mis": {
-          "query": "Where is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+          "query": "Where is the ambassador of the Rabat-Sal\u00e9-K\u00e9nitra administrative region to China based?",
           "nodes": [
             {
               "rank": 0,
-              "title": "Rabat-Salé-Kénitra",
+              "title": "Rabat-Sal\u00e9-K\u00e9nitra",
               "score": 0.8696,
               "is_poisoned": false,
               "isolated_answer": "unknown'. unknown'",
@@ -20546,7 +20886,7 @@
             },
             {
               "rank": 4,
-              "title": "Kénitra Province",
+              "title": "K\u00e9nitra Province",
               "score": 0.8379,
               "is_poisoned": false,
               "isolated_answer": "unknown'. unknown",
@@ -20723,13 +21063,17 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
       {
         "step": 2,
-        "thought": "The information provided does not directly state the city where the ambassador is based. However, it does mention that the Moroccan ambassador to China is based in Beijing. Since the ambassador represents the Rabat-Salé-Kénitra region, it is reasonable to assume that the ambassador is based in Beijing.",
+        "thought": "The information provided does not directly state the city where the ambassador is based. However, it does mention that the Moroccan ambassador to China is based in Beijing. Since the ambassador represents the Rabat-Sal\u00e9-K\u00e9nitra region, it is reasonable to assume that the ambassador is based in Beijing.",
         "action": "Finish[Beijing]",
         "is_search": false,
         "mis": null
@@ -20983,7 +21327,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -21210,7 +21558,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -21444,7 +21796,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -21527,7 +21883,7 @@
             },
             {
               "rank": 4,
-              "title": "21½ Minutes in Berlin/23 Minutes in Brussels",
+              "title": "21\u00bd Minutes in Berlin/23 Minutes in Brussels",
               "score": 0.8198,
               "is_poisoned": false,
               "isolated_answer": "unknown",
@@ -21678,7 +22034,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -21905,7 +22265,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -22132,7 +22496,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -22359,7 +22727,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -22586,7 +22958,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -22813,7 +23189,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -23040,7 +23420,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -23267,7 +23651,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -23494,7 +23882,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -23721,7 +24113,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -23948,7 +24344,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -24175,7 +24575,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -24402,7 +24806,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -24629,7 +25037,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -24856,7 +25268,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       }
@@ -25109,7 +25525,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -25336,7 +25756,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -25580,7 +26004,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -25807,7 +26235,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -26041,7 +26473,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -26268,7 +26704,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -26528,7 +26968,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -26788,7 +27232,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -27015,7 +27463,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -27242,7 +27694,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -27502,7 +27958,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -27729,7 +28189,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -27973,7 +28437,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -28233,7 +28701,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -28493,7 +28965,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.8,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -28720,7 +29196,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -28980,7 +29460,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -29191,7 +29675,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -29451,7 +29939,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -29636,7 +30128,11 @@
             "num_max_mis": 1,
             "weakness": 0.2,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -29710,7 +30206,7 @@
             },
             {
               "rank": 3,
-              "title": "2013 BNP Paribas Katowice Open – Singles",
+              "title": "2013 BNP Paribas Katowice Open \u2013 Singles",
               "score": 0.8135,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown'",
@@ -29719,7 +30215,7 @@
             },
             {
               "rank": 4,
-              "title": "2014 BRD Bucharest Open – Singles",
+              "title": "2014 BRD Bucharest Open \u2013 Singles",
               "score": 0.8027,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown'",
@@ -29896,7 +30392,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -29946,7 +30446,7 @@
             },
             {
               "rank": 4,
-              "title": "María Sánchez Lorenzo",
+              "title": "Mar\u00eda S\u00e1nchez Lorenzo",
               "score": 0.7998,
               "is_poisoned": false,
               "isolated_answer": "unknown' The document provided contains information about a female tennis player's highest WTA ranking but does not provide any information about Jorge Lozano's best singles ranking. Therefore, the answer is 'unknown'.",
@@ -30107,7 +30607,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -30367,7 +30871,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -30578,7 +31086,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -30643,7 +31155,7 @@
             },
             {
               "rank": 2,
-              "title": "Érika Alcocer Luna",
+              "title": "\u00c9rika Alcocer Luna",
               "score": 0.8081,
               "is_poisoned": false,
               "isolated_answer": "unknown' The document provided contains information about Erika Alcocer Luna, including her birth date, but it does not contain any information about someone named Erika Jayne. Therefore, the birth date of Erika Jayne is unknown based on the given document. Answer: unknown'",
@@ -30838,7 +31350,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -30861,7 +31377,7 @@
             },
             {
               "rank": 1,
-              "title": "Marco Antônio da Silva",
+              "title": "Marco Ant\u00f4nio da Silva",
               "score": 0.8516,
               "is_poisoned": false,
               "isolated_answer": "May 9, 1966",
@@ -31065,7 +31581,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.9,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -31325,7 +31845,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -31585,7 +32109,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.7,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -31635,10 +32163,10 @@
             },
             {
               "rank": 4,
-              "title": "Niccolò di Pietro Gerini",
+              "title": "Niccol\u00f2 di Pietro Gerini",
               "score": 0.8027,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The document provided is about Niccolò di Pietro Gerini, an Italian painter from the late Gothic period. There is no information about Pietro Germi or his occupation in this document. Therefore, the answer is 'unknown'. Note that Pietro Germi is a different person from Niccolò di",
+              "isolated_answer": "unknown' The document provided is about Niccol\u00f2 di Pietro Gerini, an Italian painter from the late Gothic period. There is no information about Pietro Germi or his occupation in this document. Therefore, the answer is 'unknown'. Note that Pietro Germi is a different person from Niccol\u00f2 di",
               "unknown": true,
               "in_mis": false
             }
@@ -31812,7 +32340,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.7,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -32072,7 +32604,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -32088,7 +32624,7 @@
   {
     "id": "5a7a8a9c554299042af8f666",
     "idx": 152,
-    "query": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
+    "query": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aim\u00e9 Argand?",
     "correct_answer": "Argand lamp",
     "final_answer": "Argand lamp",
     "n_search_steps": 1,
@@ -32111,27 +32647,27 @@
     "steps": [
       {
         "step": 1,
-        "thought": "I need to find out what type of lamp was patented by Aimé Argand in 1780.",
-        "action": "Search[Aimé Argand lamp 1780]",
+        "thought": "I need to find out what type of lamp was patented by Aim\u00e9 Argand in 1780.",
+        "action": "Search[Aim\u00e9 Argand lamp 1780]",
         "is_search": true,
         "mis": {
-          "query": "Aimé Argand lamp 1780",
+          "query": "Aim\u00e9 Argand lamp 1780",
           "nodes": [
             {
               "rank": 0,
               "title": "Argand lamp",
               "score": 0.895,
               "is_poisoned": false,
-              "isolated_answer": "Argand lamp, oil lamp, invented and patented in 1780 by Aimé Argand. unknown",
+              "isolated_answer": "Argand lamp, oil lamp, invented and patented in 1780 by Aim\u00e9 Argand. unknown",
               "unknown": false,
               "in_mis": true
             },
             {
               "rank": 1,
-              "title": "Aimé Argand",
+              "title": "Aim\u00e9 Argand",
               "score": 0.8926,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The document provides information about Aimé Argand and his invention, the Argand lamp, but it does not specify the year 1780 as the time of invention. Therefore, the answer based on the given information is 'unknown'. However, it's worth noting that the phrasing of the question",
+              "isolated_answer": "unknown' The document provides information about Aim\u00e9 Argand and his invention, the Argand lamp, but it does not specify the year 1780 as the time of invention. Therefore, the answer based on the given information is 'unknown'. However, it's worth noting that the phrasing of the question",
               "unknown": true,
               "in_mis": false
             },
@@ -32140,7 +32676,7 @@
               "title": "Lewis lamp",
               "score": 0.8237,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The document does not provide information about the Aimé Argand lamp in the year 1780. It only mentions that Aimé Argand invented the Argand lamp and created a variant with a parabolic reflector, but it does not specify the year of these events. Therefore, the answer is",
+              "isolated_answer": "unknown' The document does not provide information about the Aim\u00e9 Argand lamp in the year 1780. It only mentions that Aim\u00e9 Argand invented the Argand lamp and created a variant with a parabolic reflector, but it does not specify the year of these events. Therefore, the answer is",
               "unknown": true,
               "in_mis": false
             },
@@ -32149,16 +32685,16 @@
               "title": "Anglepoise lamp",
               "score": 0.8008,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The provided document only contains information about the Anglepoise lamp and its designer, George Carwardine. There is no information about the Aimé Argand lamp from 1780. Therefore, the answer is 'unknown'.",
+              "isolated_answer": "unknown' The provided document only contains information about the Anglepoise lamp and its designer, George Carwardine. There is no information about the Aim\u00e9 Argand lamp from 1780. Therefore, the answer is 'unknown'.",
               "unknown": true,
               "in_mis": false
             },
             {
               "rank": 4,
-              "title": "Döbereiner's lamp",
+              "title": "D\u00f6bereiner's lamp",
               "score": 0.7998,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The provided document does not contain any information about the Aimé Argand lamp from 1780. Therefore, the answer is 'unknown'.",
+              "isolated_answer": "unknown' The provided document does not contain any information about the Aim\u00e9 Argand lamp from 1780. Therefore, the answer is 'unknown'.",
               "unknown": true,
               "in_mis": false
             }
@@ -32332,13 +32868,17 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
       {
         "step": 2,
-        "thought": "The Argand lamp was patented in 1780 by Aimé Argand. The Lewis lamp, which was used in lighthouses, used a similar design to the Argand lamp.",
+        "thought": "The Argand lamp was patented in 1780 by Aim\u00e9 Argand. The Lewis lamp, which was used in lighthouses, used a similar design to the Argand lamp.",
         "action": "Finish[Argand lamp]",
         "is_search": false,
         "mis": null
@@ -32592,7 +33132,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -32819,7 +33363,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -33053,7 +33601,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -33097,7 +33649,7 @@
               "title": "Battle of Manila (1945)",
               "score": 0.8628,
               "is_poisoned": false,
-              "isolated_answer": "February 3, 1945 – March 3, 1945",
+              "isolated_answer": "February 3, 1945 \u2013 March 3, 1945",
               "unknown": false,
               "in_mis": false
             },
@@ -33106,7 +33658,7 @@
               "title": "Battle of Manila (1899)",
               "score": 0.8628,
               "is_poisoned": false,
-              "isolated_answer": "February 4–5, 1899. The answer is directly stated in the document provided.",
+              "isolated_answer": "February 4\u20135, 1899. The answer is directly stated in the document provided.",
               "unknown": false,
               "in_mis": false
             }
@@ -33280,7 +33832,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 1,
+            "excluded_fraction_nli_only": 0.8,
+            "edge_density_nli_only": 1.0,
+            "weakness_nli_only": 0.8
           }
         }
       },
@@ -33540,7 +34096,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -33800,7 +34360,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -34027,7 +34591,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -34092,7 +34660,7 @@
             },
             {
               "rank": 2,
-              "title": "Stephen López",
+              "title": "Stephen L\u00f3pez",
               "score": 0.7935,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown'",
@@ -34101,7 +34669,7 @@
             },
             {
               "rank": 3,
-              "title": "Patrick López",
+              "title": "Patrick L\u00f3pez",
               "score": 0.792,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown' unknown'",
@@ -34110,7 +34678,7 @@
             },
             {
               "rank": 4,
-              "title": "Steven López",
+              "title": "Steven L\u00f3pez",
               "score": 0.791,
               "is_poisoned": false,
               "isolated_answer": "unknown'",
@@ -34287,7 +34855,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -34337,7 +34909,7 @@
             },
             {
               "rank": 4,
-              "title": "Stephen López",
+              "title": "Stephen L\u00f3pez",
               "score": 0.7842,
               "is_poisoned": false,
               "isolated_answer": "unknown'",
@@ -34514,7 +35086,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -34741,7 +35317,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -35001,7 +35581,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -35228,7 +35812,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -35488,7 +36076,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -35748,7 +36340,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -35982,7 +36578,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -36209,7 +36809,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -36469,7 +37073,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -36680,7 +37288,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -36696,7 +37308,7 @@
   {
     "id": "5ab6ba245542995eadef007f",
     "idx": 175,
-    "query": "Are Bamboo Mañalac and Danny Jones both musicians?",
+    "query": "Are Bamboo Ma\u00f1alac and Danny Jones both musicians?",
     "correct_answer": "yes",
     "final_answer": "Yes",
     "n_search_steps": 2,
@@ -36719,15 +37331,15 @@
     "steps": [
       {
         "step": 1,
-        "thought": "I need to find out if Bamboo Mañalac is a musician.",
-        "action": "Search[Who is Bamboo Mañalac?]",
+        "thought": "I need to find out if Bamboo Ma\u00f1alac is a musician.",
+        "action": "Search[Who is Bamboo Ma\u00f1alac?]",
         "is_search": true,
         "mis": {
-          "query": "Who is Bamboo Mañalac?",
+          "query": "Who is Bamboo Ma\u00f1alac?",
           "nodes": [
             {
               "rank": 0,
-              "title": "Bamboo Mañalac",
+              "title": "Bamboo Ma\u00f1alac",
               "score": 0.897,
               "is_poisoned": false,
               "isolated_answer": "Filipino American musician and singer-songwriter. unknown",
@@ -36748,7 +37360,7 @@
               "title": "No Water, No Moon",
               "score": 0.8271,
               "is_poisoned": false,
-              "isolated_answer": "unknown' based on the provided document, which does not give a description or background of Bamboo Mañalac beyond his association with the album \"No Water, No Moon\" and his former band, Bamboo. However, it's worth noting that the typical response format should be a concise answer when the information is available in",
+              "isolated_answer": "unknown' based on the provided document, which does not give a description or background of Bamboo Ma\u00f1alac beyond his association with the album \"No Water, No Moon\" and his former band, Bamboo. However, it's worth noting that the typical response format should be a concise answer when the information is available in",
               "unknown": true,
               "in_mis": false
             },
@@ -36766,7 +37378,7 @@
               "title": "Bamboo Club",
               "score": 0.813,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The document provided does not contain any information about Bamboo Mañalac. Therefore, the answer is unknown. '",
+              "isolated_answer": "unknown' The document provided does not contain any information about Bamboo Ma\u00f1alac. Therefore, the answer is unknown. '",
               "unknown": true,
               "in_mis": false
             }
@@ -36924,13 +37536,17 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
       {
         "step": 2,
-        "thought": "Bamboo Mañalac is a musician. Now I need to find out if Danny Jones is a musician.",
+        "thought": "Bamboo Ma\u00f1alac is a musician. Now I need to find out if Danny Jones is a musician.",
         "action": "Search[Who is Danny Jones?]",
         "is_search": true,
         "mis": {
@@ -37135,13 +37751,17 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.6,
+            "weakness_nli_only": 0.4
           }
         }
       },
       {
         "step": 3,
-        "thought": "Danny Jones, the musician, is a member of the pop-rock band McFly. So both Bamboo Mañalac and Danny Jones are musicians.",
+        "thought": "Danny Jones, the musician, is a member of the pop-rock band McFly. So both Bamboo Ma\u00f1alac and Danny Jones are musicians.",
         "action": "Finish[Yes]",
         "is_search": false,
         "mis": null
@@ -37395,7 +38015,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -37606,7 +38230,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -37866,7 +38494,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -38093,7 +38725,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -38353,7 +38989,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -38613,7 +39253,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -38840,7 +39484,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -39100,7 +39748,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -39135,7 +39787,7 @@
               "title": "5x2",
               "score": 0.8101,
               "is_poisoned": false,
-              "isolated_answer": "unknown'. The document provided is about the film \"5x2\" directed by François Ozon and does not contain any information about \"The Five Obstructions\". Therefore, the answer based on the given document is unknown.",
+              "isolated_answer": "unknown'. The document provided is about the film \"5x2\" directed by Fran\u00e7ois Ozon and does not contain any information about \"The Five Obstructions\". Therefore, the answer based on the given document is unknown.",
               "unknown": true,
               "in_mis": false
             },
@@ -39327,7 +39979,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -39587,7 +40243,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -39827,7 +40487,11 @@
             "num_max_mis": 3,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -40054,7 +40718,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -40314,7 +40982,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -40379,7 +41051,7 @@
             },
             {
               "rank": 2,
-              "title": "2016–17 Summit Sportsman Series",
+              "title": "2016\u201317 Summit Sportsman Series",
               "score": 0.7964,
               "is_poisoned": false,
               "isolated_answer": "unknown' unknown'",
@@ -40574,7 +41246,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -40834,7 +41510,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 1,
+            "excluded_fraction_nli_only": 0.8,
+            "edge_density_nli_only": 1.0,
+            "weakness_nli_only": 0.8
           }
         }
       },
@@ -41185,7 +41865,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -41445,7 +42129,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -41705,7 +42393,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -41932,7 +42624,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -42176,7 +42872,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -42403,7 +43103,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -42621,7 +43325,11 @@
             "num_max_mis": 1,
             "weakness": 0.2,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -42848,7 +43556,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -43108,7 +43820,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -43309,7 +44025,11 @@
             "num_max_mis": 1,
             "weakness": 0.4,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -43569,7 +44289,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 1,
+            "excluded_fraction_nli_only": 0.8,
+            "edge_density_nli_only": 1.0,
+            "weakness_nli_only": 0.8
           }
         }
       },
@@ -43754,7 +44478,11 @@
             "num_max_mis": 1,
             "weakness": 0.2,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -44014,7 +44742,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 3,
+            "excluded_fraction_nli_only": 0.4,
+            "edge_density_nli_only": 0.4,
+            "weakness_nli_only": 0.4
           }
         }
       },
@@ -44225,7 +44957,11 @@
             "num_max_mis": 1,
             "weakness": 0.6,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -44241,7 +44977,7 @@
   {
     "id": "5adf3e355542993a75d26440",
     "idx": 227,
-    "query": "How long is the bridge in the Öresund Region that connect Copenhagen, Denmark and Malmo, Sweden?",
+    "query": "How long is the bridge in the \u00d6resund Region that connect Copenhagen, Denmark and Malmo, Sweden?",
     "correct_answer": "16 km",
     "final_answer": "12 km",
     "n_search_steps": 2,
@@ -44264,18 +45000,18 @@
     "steps": [
       {
         "step": 1,
-        "thought": "I need to find the name of the bridge that connects Copenhagen and Malmö.",
-        "action": "Search[bridge that connects Copenhagen and Malmö]",
+        "thought": "I need to find the name of the bridge that connects Copenhagen and Malm\u00f6.",
+        "action": "Search[bridge that connects Copenhagen and Malm\u00f6]",
         "is_search": true,
         "mis": {
-          "query": "bridge that connects Copenhagen and Malmö",
+          "query": "bridge that connects Copenhagen and Malm\u00f6",
           "nodes": [
             {
               "rank": 0,
-              "title": "Copenhagen Malmö Port",
+              "title": "Copenhagen Malm\u00f6 Port",
               "score": 0.8462,
               "is_poisoned": false,
-              "isolated_answer": "Øresund Bridge unknown",
+              "isolated_answer": "\u00d8resund Bridge unknown",
               "unknown": false,
               "in_mis": true
             },
@@ -44284,16 +45020,16 @@
               "title": "Transport in Copenhagen",
               "score": 0.8403,
               "is_poisoned": false,
-              "isolated_answer": "Øresund Bridge unknown",
+              "isolated_answer": "\u00d8resund Bridge unknown",
               "unknown": false,
               "in_mis": true
             },
             {
               "rank": 2,
-              "title": "Øresund Bridge",
+              "title": "\u00d8resund Bridge",
               "score": 0.8384,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The document provided does not explicitly state that the Øresund/Öresund/Oresund Bridge connects Copenhagen and Malmö, even though it mentions the bridge connects Sweden and Denmark. Therefore, based solely on the information given, the answer is 'unknown'. However, it's worth noting that in reality,",
+              "isolated_answer": "unknown' The document provided does not explicitly state that the \u00d8resund/\u00d6resund/Oresund Bridge connects Copenhagen and Malm\u00f6, even though it mentions the bridge connects Sweden and Denmark. Therefore, based solely on the information given, the answer is 'unknown'. However, it's worth noting that in reality,",
               "unknown": true,
               "in_mis": false
             },
@@ -44311,7 +45047,7 @@
               "title": "Copenhagen",
               "score": 0.8364,
               "is_poisoned": false,
-              "isolated_answer": "Øresund Bridge unknown",
+              "isolated_answer": "\u00d8resund Bridge unknown",
               "unknown": false,
               "in_mis": true
             }
@@ -44443,21 +45179,25 @@
             "num_max_mis": 1,
             "weakness": 0.2,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
       {
         "step": 2,
-        "thought": "The bridge that connects Copenhagen and Malmö is the Øresund Bridge. Now I need to find its length.",
-        "action": "Search[Length of the Øresund Bridge]",
+        "thought": "The bridge that connects Copenhagen and Malm\u00f6 is the \u00d8resund Bridge. Now I need to find its length.",
+        "action": "Search[Length of the \u00d8resund Bridge]",
         "is_search": true,
         "mis": {
-          "query": "Length of the Øresund Bridge",
+          "query": "Length of the \u00d8resund Bridge",
           "nodes": [
             {
               "rank": 0,
-              "title": "Øresund Bridge",
+              "title": "\u00d8resund Bridge",
               "score": 0.8467,
               "is_poisoned": false,
               "isolated_answer": "nearly 8 km",
@@ -44466,7 +45206,7 @@
             },
             {
               "rank": 1,
-              "title": "Øresund",
+              "title": "\u00d8resund",
               "score": 0.8442,
               "is_poisoned": false,
               "isolated_answer": "unknown'. unknown'",
@@ -44484,7 +45224,7 @@
             },
             {
               "rank": 3,
-              "title": "Øresund Region",
+              "title": "\u00d8resund Region",
               "score": 0.8247,
               "is_poisoned": false,
               "isolated_answer": "unknown",
@@ -44670,13 +45410,17 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.1,
+            "weakness_nli_only": 0.2
           }
         }
       },
       {
         "step": 3,
-        "thought": "The Øresund Bridge is nearly 8 km long, and the Drogden Tunnel is 4 km long. So the total length of the bridge and tunnel is 12 km.",
+        "thought": "The \u00d8resund Bridge is nearly 8 km long, and the Drogden Tunnel is 4 km long. So the total length of the bridge and tunnel is 12 km.",
         "action": "Finish[12 km]",
         "is_search": false,
         "mis": null
@@ -44930,7 +45674,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -45157,7 +45905,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -45417,7 +46169,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -45644,7 +46400,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -45904,7 +46664,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -45939,7 +46703,7 @@
               "title": "List of busiest airports by passenger traffic",
               "score": 0.8218,
               "is_poisoned": false,
-              "isolated_answer": "unknown' The provided document does not mention Logan International Airport or specify which airport is the busiest in the U.S. other than Hartsfield–Jackson Atlanta International Airport being the world's busiest since 2000. Therefore, the answer is unknown based on the given information. However, it's important to note",
+              "isolated_answer": "unknown' The provided document does not mention Logan International Airport or specify which airport is the busiest in the U.S. other than Hartsfield\u2013Jackson Atlanta International Airport being the world's busiest since 2000. Therefore, the answer is unknown based on the given information. However, it's important to note",
               "unknown": true,
               "in_mis": false
             },
@@ -46131,7 +46895,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.2,
+            "weakness_nli_only": 0.2
           }
         }
       },
@@ -46391,7 +47159,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 2,
+            "excluded_fraction_nli_only": 0.6,
+            "edge_density_nli_only": 0.5,
+            "weakness_nli_only": 0.6
           }
         }
       },
@@ -46618,7 +47390,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -46878,7 +47654,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 5,
+            "excluded_fraction_nli_only": 0.0,
+            "edge_density_nli_only": 0.0,
+            "weakness_nli_only": 0.0
           }
         }
       },
@@ -47105,7 +47885,11 @@
             "num_max_mis": 5,
             "weakness": 0.8,
             "n_poisoned": 0,
-            "poisoned_survived_mis": 0
+            "poisoned_survived_mis": 0,
+            "mis_size_nli_only": 4,
+            "excluded_fraction_nli_only": 0.2,
+            "edge_density_nli_only": 0.3,
+            "weakness_nli_only": 0.2
           }
         }
       },

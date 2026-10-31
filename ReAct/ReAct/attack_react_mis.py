@@ -237,7 +237,13 @@ if __name__ == "__main__":
     per_index_excluded = defaultdict(list)
     per_index_density = defaultdict(list)
     per_index_missize = defaultdict(list)
+    # parallel accumulators for the NLI-only (original ReliabilityRAG) view
+    per_index_weakness_nli = defaultdict(list)
+    per_index_excluded_nli = defaultdict(list)
+    per_index_density_nli = defaultdict(list)
+    per_index_missize_nli = defaultdict(list)
     weakest_index_counter = Counter()            # per-question weakest loop index
+    weakest_index_counter_nli = Counter()        # same, NLI-only metrics
     start_time = time.time()
 
     for n_done, (qid, idx) in enumerate(items, 1):
@@ -261,6 +267,10 @@ if __name__ == "__main__":
                 per_index_excluded[si].append(met['excluded_fraction'])
                 per_index_density[si].append(met['edge_density'])
                 per_index_missize[si].append(met['mis_size'])
+                per_index_weakness_nli[si].append(met['weakness_nli_only'])
+                per_index_excluded_nli[si].append(met['excluded_fraction_nli_only'])
+                per_index_density_nli[si].append(met['edge_density_nli_only'])
+                per_index_missize_nli[si].append(met['mis_size_nli_only'])
                 q_search_metrics.append((si, met))
             q_steps.append({
                 'step': rec['step'], 'thought': rec['thought'], 'action': rec['action'],
@@ -274,6 +284,10 @@ if __name__ == "__main__":
             weakest = max(q_search_metrics,
                           key=lambda t: (t[1]['excluded_fraction'], t[1]['edge_density'], -t[0]))
             weakest_index_counter[weakest[0]] += 1
+            weakest_nli = max(q_search_metrics,
+                              key=lambda t: (t[1]['excluded_fraction_nli_only'],
+                                             t[1]['edge_density_nli_only'], -t[0]))
+            weakest_index_counter_nli[weakest_nli[0]] += 1
 
         pq = {
             'id': qid, 'idx': idx, 'query': question_text,
@@ -305,12 +319,19 @@ if __name__ == "__main__":
             'mean_excluded_fraction': round(sum(per_index_excluded[si]) / len(per_index_excluded[si]), 4),
             'mean_edge_density': round(sum(per_index_density[si]) / len(per_index_density[si]), 4),
             'mean_mis_size': round(sum(per_index_missize[si]) / len(per_index_missize[si]), 4),
+            # original ReliabilityRAG view (NLI edges only, unknowns neutral)
+            'mean_weakness_nli_only': round(sum(per_index_weakness_nli[si]) / len(per_index_weakness_nli[si]), 4),
+            'mean_excluded_fraction_nli_only': round(sum(per_index_excluded_nli[si]) / len(per_index_excluded_nli[si]), 4),
+            'mean_edge_density_nli_only': round(sum(per_index_density_nli[si]) / len(per_index_density_nli[si]), 4),
+            'mean_mis_size_nli_only': round(sum(per_index_missize_nli[si]) / len(per_index_missize_nli[si]), 4),
         }
 
     # overall weakest loop index by mean excluded_fraction (require >=3 support)
     eligible = [(si, s) for si, s in per_index_summary.items() if s['n_questions'] >= 3]
     weakest_overall = (max(eligible, key=lambda t: t[1]['mean_excluded_fraction'])[0]
                        if eligible else None)
+    weakest_overall_nli = (max(eligible, key=lambda t: t[1]['mean_excluded_fraction_nli_only'])[0]
+                           if eligible else None)
 
     summary = {
         'config': {
@@ -322,8 +343,11 @@ if __name__ == "__main__":
         'n_questions': len(per_question),
         'aggregation_A_per_loop_index': per_index_summary,
         'weakest_loop_index_overall': weakest_overall,
+        'weakest_loop_index_overall_nli_only': weakest_overall_nli,
         'aggregation_B_per_question_weakest_loop_distribution':
             {str(k): v for k, v in sorted(weakest_index_counter.items())},
+        'aggregation_B_per_question_weakest_loop_distribution_nli_only':
+            {str(k): v for k, v in sorted(weakest_index_counter_nli.items())},
         'time_sec': round(time.time() - start_time, 1),
     }
     summary_path = os.path.join(output_dir, f'{args.dataset}_{m}_mis_summary.json')
@@ -334,14 +358,18 @@ if __name__ == "__main__":
     print("ReliabilityRAG MIS diagnostic (clean) complete")
     print(f"Questions: {len(per_question)} | time {summary['time_sec']}s")
     print("\n(A) Mean weakness per loop index  [weakness = 1 - MIS/k]:")
+    print("      (W=unknown-aware, W_nli=NLI-only / original ReliabilityRAG)")
     for si, s in per_index_summary.items():
-        print(f"  loop {si:>2}: weakness={s['mean_weakness']:.3f} "
+        print(f"  loop {si:>2}: W={s['mean_weakness']:.3f} "
+              f"W_nli={s['mean_weakness_nli_only']:.3f} "
               f"excluded={s['mean_excluded_fraction']:.3f} "
               f"density={s['mean_edge_density']:.3f} "
               f"mis={s['mean_mis_size']:.2f}  (n={s['n_questions']})")
-    print(f"\nWeakest loop index overall (mean excluded_fraction, n>=3): {weakest_overall}")
-    print("\n(B) Per-question weakest-loop distribution:")
-    for si, c in sorted(weakest_index_counter.items()):
-        print(f"  loop {si:>2}: {c} questions")
+    print(f"\nWeakest loop index overall (mean excluded_fraction, n>=3): "
+          f"{weakest_overall}  (NLI-only: {weakest_overall_nli})")
+    print("\n(B) Per-question weakest-loop distribution [unknown-aware | NLI-only]:")
+    for si in sorted(set(weakest_index_counter) | set(weakest_index_counter_nli)):
+        print(f"  loop {si:>2}: {weakest_index_counter.get(si, 0)} | "
+              f"{weakest_index_counter_nli.get(si, 0)} questions")
     print(f"\nSaved: {summary_path}")
     print("=" * 60)

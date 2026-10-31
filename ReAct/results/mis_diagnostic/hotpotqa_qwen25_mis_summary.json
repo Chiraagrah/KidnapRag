@@ -8,7 +8,8 @@
     "unknown_contradicts": true,
     "nli_model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
     "k_docs": 5,
-    "scenario": "clean/no-attack"
+    "scenario": "clean/no-attack",
+    "nli_only_beta": 0.5
   },
   "n_questions": 100,
   "aggregation_A_per_loop_index": {
@@ -17,105 +18,165 @@
       "mean_weakness": 0.744,
       "mean_excluded_fraction": 0.744,
       "mean_edge_density": 0.953,
-      "mean_mis_size": 1.28
+      "mean_mis_size": 1.28,
+      "mean_weakness_nli_only": 0.242,
+      "mean_excluded_fraction_nli_only": 0.242,
+      "mean_edge_density_nli_only": 0.267,
+      "mean_mis_size_nli_only": 3.79
     },
     "2": {
       "n_questions": 68,
       "mean_weakness": 0.7324,
       "mean_excluded_fraction": 0.7324,
       "mean_edge_density": 0.9515,
-      "mean_mis_size": 1.3382
+      "mean_mis_size": 1.3382,
+      "mean_weakness_nli_only": 0.2324,
+      "mean_excluded_fraction_nli_only": 0.2324,
+      "mean_edge_density_nli_only": 0.2471,
+      "mean_mis_size_nli_only": 3.8382
     },
     "3": {
       "n_questions": 4,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.1,
+      "mean_excluded_fraction_nli_only": 0.1,
+      "mean_edge_density_nli_only": 0.175,
+      "mean_mis_size_nli_only": 4.5
     },
     "4": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "5": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "6": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "7": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "8": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "9": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "10": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "11": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "12": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "13": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "14": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     },
     "15": {
       "n_questions": 2,
       "mean_weakness": 0.8,
       "mean_excluded_fraction": 0.8,
       "mean_edge_density": 1.0,
-      "mean_mis_size": 1.0
+      "mean_mis_size": 1.0,
+      "mean_weakness_nli_only": 0.0,
+      "mean_excluded_fraction_nli_only": 0.0,
+      "mean_edge_density_nli_only": 0.0,
+      "mean_mis_size_nli_only": 5.0
     }
   },
   "weakest_loop_index_overall": "3",
@@ -123,5 +184,11 @@
     "1": 89,
     "2": 11
   },
-  "time_sec": 2039.8
+  "time_sec": 2039.8,
+  "weakest_loop_index_overall_nli_only": "1",
+  "aggregation_B_per_question_weakest_loop_distribution_nli_only": {
+    "1": 72,
+    "2": 27,
+    "3": 1
+  }
 }

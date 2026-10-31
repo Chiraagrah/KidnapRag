@@ -256,6 +256,18 @@ class ReliabilityMIS:
         poisoned_flags = [bool(d.get("is_poisoned", False)) for d in docs]
         metrics = mis_metrics(n, edges, selected, poisoned_flags)
 
+        # Original ReliabilityRAG view (NLI edges only, unknowns neutral), logged
+        # alongside the unknown-aware metrics. On clean HotpotQA the unknown rule
+        # saturates weakness near the k ceiling; this column keeps the raw-NLI
+        # fracture signal so the two can be compared. Identical when
+        # unknown_contradicts is off.
+        nli_edges = {(i, j) for i, j in combinations(range(n), 2)
+                     if mat[i][j] >= self.beta}
+        nli_selected = list(rank_aware_mis(n, nli_edges))
+        nli_metrics = mis_metrics(n, nli_edges, nli_selected, poisoned_flags)
+        for key in ("mis_size", "excluded_fraction", "edge_density", "weakness"):
+            metrics[f"{key}_nli_only"] = nli_metrics[key]
+
         nodes = []
         for rank, d in enumerate(docs):
             nodes.append({
