@@ -174,12 +174,14 @@ class ReliabilityMIS:
         ans = generate_fn(prompt)
         return (ans or "").strip()
 
-    # phrases that signal the doc could not answer the sub-query (irrelevant)
-    _UNKNOWN_PATTERNS = (
-        "unknown", "i don't know", "i do not know", "not mentioned",
-        "not specified", "no information", "not provided", "not stated",
-        "cannot be determined", "does not contain", "does not mention",
-        "no answer",
+    # strong "no information" phrases. We match 'unknown' only when the answer
+    # LEADS with it, so a real answer that merely mentions the word (e.g.
+    # "Ortakoy ... unknown") is not misread as a non-answer; the other phrases
+    # are matched anywhere, as they only appear in refusals.
+    _REFUSAL_PATTERNS = (
+        "i don't know", "i do not know", "not mentioned", "not specified",
+        "no information", "not provided", "not stated", "cannot be determined",
+        "does not contain", "does not mention", "no answer", "not available",
     )
 
     def _is_unknown(self, answer: str) -> bool:
@@ -187,7 +189,9 @@ class ReliabilityMIS:
         a = (answer or "").strip().lower().strip(" .\"'`:")
         if not a:
             return True
-        return any(p in a for p in self._UNKNOWN_PATTERNS)
+        if a.startswith("unknown"):
+            return True
+        return any(p in a for p in self._REFUSAL_PATTERNS)
 
     # -- step 2: pairwise contradiction ------------------------------------ #
     def _contra_prob(self, premise: str, hypothesis: str) -> float:
