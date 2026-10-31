@@ -67,6 +67,17 @@ Notes
 Weakness scalar = `1 - |MIS|/k` (k=5). Higher = the retrieved set fractured into
 contradicting camps = weaker, easier-to-hijack loop.
 
+### Relevance: "unknown" answers count as contradictions (default)
+A doc whose isolated answer is `unknown` could not answer the sub-query — it is
+irrelevant to this loop. By default such a doc is forced to **contradict every
+other doc** (including other unknowns), so irrelevant retrieval cannot form the
+consistent majority and instead raises the loop's weakness. Each node carries an
+`unknown` flag and each edge a `reason` (`nli` or `unknown`); `contra_matrix`
+still holds the raw NLI probabilities. Pass `--unknown_neutral` to recover
+ReliabilityRAG's original behavior (unknowns treated as neutral non-answers).
+Note the k=5 ceiling: an all-unknown loop becomes a complete graph, so its MIS
+is 1 and weakness caps at 0.8.
+
 ## Seeing the graph
 Three ways, all from the same JSON:
 

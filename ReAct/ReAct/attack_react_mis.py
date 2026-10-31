@@ -46,6 +46,11 @@ parser.add_argument("--nli_device", type=str, default=None,
 parser.add_argument("--nli_model", type=str,
                     default="MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli")
 parser.add_argument("--beta", type=float, default=0.5, help="NLI contradiction threshold")
+parser.add_argument("--unknown_neutral", action="store_true",
+                    help="Treat 'unknown' isolated answers as neutral (ReliabilityRAG "
+                         "default). By default an 'unknown' (irrelevant) doc contradicts "
+                         "every other doc, so irrelevant retrieval lowers the MIS / raises "
+                         "weakness.")
 parser.add_argument("--isolated_max_tokens", type=int, default=64)
 parser.add_argument("--output_dir", type=str, default=None)
 args = parser.parse_args()
@@ -117,7 +122,8 @@ elif args.dataset == "2wikimultihopqa":
     env = wrappers.wikimultihopqaWrapper(env, split="dev")
 env = wrappers.LoggingWrapper(env)
 
-mis = ReliabilityMIS(nli_model_name=args.nli_model, nli_device=nli_device, beta=args.beta)
+mis = ReliabilityMIS(nli_model_name=args.nli_model, nli_device=nli_device, beta=args.beta,
+                     unknown_contradicts=not args.unknown_neutral)
 
 
 def step(env, action):
@@ -310,6 +316,7 @@ if __name__ == "__main__":
         'config': {
             'dataset': args.dataset, 'model': args.model_path, 'seed': args.seed,
             'max_steps': args.max_steps, 'beta': args.beta,
+            'unknown_contradicts': not args.unknown_neutral,
             'nli_model': args.nli_model, 'k_docs': 5, 'scenario': 'clean/no-attack',
         },
         'n_questions': len(per_question),

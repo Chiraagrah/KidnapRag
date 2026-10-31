@@ -130,12 +130,19 @@ class ReliabilityMIS:
 
     def __init__(self, nli_model_name: str = DEFAULT_NLI_MODEL,
                  nli_device: str = "cuda:0", beta: float = 0.5,
-                 doc_char_limit: int = 2000, answer_char_limit: int = 400):
+                 doc_char_limit: int = 2000, answer_char_limit: int = 400,
+                 unknown_contradicts: bool = True):
         import torch  # lazy
         from transformers import (AutoTokenizer,
                                    AutoModelForSequenceClassification)
         self._torch = torch
         self.beta = beta
+        # When True, a doc whose isolated answer is "unknown" (it cannot answer
+        # the sub-query, i.e. it is irrelevant) contradicts every other doc, so
+        # irrelevant docs are excluded from the consistent set and raise the
+        # loop's weakness. Set False to recover ReliabilityRAG's neutral
+        # treatment of non-answers.
+        self.unknown_contradicts = unknown_contradicts
         self.nli_device = nli_device
         self.doc_char_limit = doc_char_limit
         self.answer_char_limit = answer_char_limit
@@ -167,6 +174,21 @@ class ReliabilityMIS:
         ans = generate_fn(prompt)
         return (ans or "").strip()
 
+    # phrases that signal the doc could not answer the sub-query (irrelevant)
+    _UNKNOWN_PATTERNS = (
+        "unknown", "i don't know", "i do not know", "not mentioned",
+        "not specified", "no information", "not provided", "not stated",
+        "cannot be determined", "does not contain", "does not mention",
+        "no answer",
+    )
+
+    def _is_unknown(self, answer: str) -> bool:
+        """True if the isolated answer is empty or a 'no information' response."""
+        a = (answer or "").strip().lower().strip(" .\"'`:")
+        if not a:
+            return True
+        return any(p in a for p in self._UNKNOWN_PATTERNS)
+
     # -- step 2: pairwise contradiction ------------------------------------ #
     def _contra_prob(self, premise: str, hypothesis: str) -> float:
         torch = self._torch
@@ -196,14 +218,27 @@ class ReliabilityMIS:
 
         answers = [self.isolated_answer(generate_fn, query, d.get("contents", ""))
                    for d in docs]
+        unknown_flags = [self._is_unknown(a) for a in answers]
         mat = self.pairwise_contradiction(answers)
 
+        # A contradiction edge is drawn when the NLI model says the two answers
+        # disagree (prob >= beta) OR -- when unknown_contradicts is on -- when
+        # either endpoint is "unknown" (an irrelevant doc). Forcing unknown to
+        # contradict everything (incl. other unknowns) keeps irrelevant docs out
+        # of the consistent majority. The raw NLI prob is still stored in
+        # contra_matrix; each edge is tagged reason="nli"/"unknown".
         edges = set()
         edge_list = []
         for i, j in combinations(range(n), 2):
-            if mat[i][j] >= self.beta:
+            nli_edge = mat[i][j] >= self.beta
+            unk_edge = self.unknown_contradicts and (unknown_flags[i] or unknown_flags[j])
+            if nli_edge or unk_edge:
                 edges.add((i, j))
-                edge_list.append({"i": i, "j": j, "contra_prob": round(mat[i][j], 4)})
+                edge_list.append({
+                    "i": i, "j": j,
+                    "contra_prob": round(mat[i][j], 4),
+                    "reason": "nli" if nli_edge else "unknown",
+                })
 
         # explicit matrices so the graph is readable without any plotting:
         #   adjacency      -> binary contradiction edges (0 on diagonal)
@@ -225,6 +260,7 @@ class ReliabilityMIS:
                 "score": round(float(d.get("score", 0.0)), 4),
                 "is_poisoned": bool(d.get("is_poisoned", False)),
                 "isolated_answer": answers[rank][: self.answer_char_limit],
+                "unknown": bool(unknown_flags[rank]),
                 "in_mis": rank in selected,
             })
 
@@ -234,6 +270,8 @@ class ReliabilityMIS:
             "edges": edge_list,
             "adjacency": adjacency,
             "contra_matrix": contra_matrix,
+            "n_unknown": int(sum(unknown_flags)),
+            "unknown_contradicts": self.unknown_contradicts,
             "mis_selected": selected,
             "all_max_mis": [list(s) for s in find_maximum_independent_sets(n, edges)],
             "metrics": metrics,
