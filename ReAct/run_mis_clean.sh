@@ -6,7 +6,7 @@
 # Watch:   squeue -u cs757     tail -f /project/ss797/cs757/logs/mis_clean_<jobid>.out
 #SBATCH --job-name=mis_clean
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:4                       # 4xA100-80GB node; Qwen on cuda:1, NLI on cuda:0
+#SBATCH --gres=gpu:2                       # Qwen on cuda:1, NLI on cuda:0 (smoke-verified; gpu:2 schedules faster)
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=96G
 #SBATCH --time=24:00:00                    # QOS 'standard' cap is 72h
@@ -35,7 +35,7 @@ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 # keep all model caches on /project (HOME is 50GB-quota'd)
 export HF_HOME=/project/ss797/cs757/.cache/huggingface
 export HUGGINGFACE_HUB_CACHE=$HF_HOME
-# export HF_HUB_OFFLINE=1   # uncomment only AFTER the NLI model is cached (see step 2)
+export HF_HUB_OFFLINE=1     # Qwen + DeBERTa NLI are cached from the smoke run; comment out if a load fails on a missing file
 
 cd "$REPO/ReAct/ReAct"
 python attack_react_mis.py \
