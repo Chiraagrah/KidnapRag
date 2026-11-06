@@ -1,0 +1,7 @@
+[2026-11-05 22:59:35,152 INFO] Loading corpus from ReAct/datasets/musique/corpus.jsonl...
+[2026-11-05 22:59:35,339 INFO] Loaded 21100 documents.
+[2026-11-05 22:59:35,339 INFO] Initializing Encoder: intfloat/e5-large-v2
+[2026-11-05 22:59:44,172 INFO] Starting encoding with shard size 100000...
+[2026-11-05 22:59:44,174 INFO] Encoding shard 0: docs 0 to 21100
+[2026-11-05 23:00:29,962 INFO] Saved shard 0 to ReAct/datasets/musique/e5_index/embedding-shard-0.pt
+[2026-11-05 23:00:29,962 INFO] Indexing completed successfully.
