@@ -86,7 +86,9 @@ def main():
     records = []
     for qi, (qid, q) in enumerate(questions.items(), 1):
         decomp = q.get("question_decomposition", [])
-        answers_by_id = {step.get("id", i + 1): step.get("answer", "")
+        # MuSiQue '#N' refers to the N-th decomposition POSITION (1-indexed),
+        # NOT the step's source 'id' field -- key by position.
+        answers_by_id = {i + 1: step.get("answer", "")
                          for i, step in enumerate(decomp)}
         paras = q.get("paragraphs", [])
         for hop, step in enumerate(decomp):
