@@ -26,12 +26,16 @@ def load_queries(path):
 
 
 def iter_corpus(path):
-    if os.path.exists(path):
-        if path.endswith(".parquet"):
-            import pandas as pd
-            for r in pd.read_parquet(path).to_dict("records"):
-                yield r
-        else:
+    if os.path.isdir(path) or (os.path.exists(path) and path.endswith(".parquet")):
+        import glob
+        import pyarrow.parquet as pq
+        files = sorted(glob.glob(os.path.join(path, "**", "*.parquet"), recursive=True)) if os.path.isdir(path) else [path]
+        for fp in files:
+            for batch in pq.ParquetFile(fp).iter_batches(batch_size=2000):
+                for r in batch.to_pylist():
+                    yield r
+    elif os.path.exists(path):
+        if True:
             with open(path, encoding="utf-8") as f:
                 for l in f:
                     if l.strip():

@@ -1,6 +1,7 @@
 # Datasets (large, not versioned)
 datasets/
 **/datasets/
+data/
 
 # Python bytecode / caches
 __pycache__/
