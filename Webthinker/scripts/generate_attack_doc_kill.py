@@ -908,10 +908,14 @@ def run_batch_inference_no_trace(data, model, tokenizer, sampling_params, fout):
 
 def main(args):
     input_path = resolve_readme_path(args.input_path)
-    if "clean_qwq.json" in args.input_path:
+    if getattr(args, "gen_model", None):
+        m = args.gen_model
+    elif "clean_qwq.json" in args.input_path:
         m="qwq"
     elif "clean_deepseek_32b.json" in args.input_path:
         m="deepseek_32b"
+    else:
+        m = os.path.splitext(os.path.basename(args.input_path))[0]
     output_tag = "BAIT_DOC" if args.type == "ours" else args.type
     output_path = WEBTHINKER_ROOT / "datasets" / f"{args.dataset}_poisoned_corpus" / f"WEBTHINKER_{output_tag}_{m}.jsonl"
 
@@ -1483,6 +1487,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, default="hotpotqa")
     parser.add_argument("--gpu_num", type=int, default=4)
     parser.add_argument("--dry_run", action="store_true", default=False)
+    parser.add_argument("--gen_model", type=str, default=None, help="Model tag used in output file names (default: inferred from input_path)")
     parser.add_argument("--input_path", type=str, default="/KidnapRAG/Webthinker/results/hotpotqa/clean_qwq.json")
     args = parser.parse_args()
     main(args)

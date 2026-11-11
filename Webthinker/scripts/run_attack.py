@@ -47,6 +47,8 @@ def parse_args():
     parser.add_argument("--dry_run", action="store_true", help="Run on a small subset")
 
     # Retrieval Arguments
+    parser.add_argument("--retriever_device", type=str, default="cuda:0", help="Device for the E5 retriever / indexing")
+    parser.add_argument("--max_chunks_per_doc", type=int, default=0, help="Max chunks per source doc ('docid') in top-k; 0 = no limit")
     parser.add_argument("--search_engine", type=str, default="e5", choices=["e5", "bing", "serper"], help="Search engine to use")
     parser.add_argument("--retrieval_model_name", type=str, default="intfloat/e5-large-v2", help="Path or name of retrieval model (E5)")
     parser.add_argument("--index_dir", type=str, default=None, help="Path to E5 index directory")
@@ -145,7 +147,7 @@ def main():
                 corpus_path=args.corpus_path, 
                 index_dir=args.index_dir, 
                 model_name=args.retrieval_model_name,
-                device="cuda:2"
+                device=args.retriever_device
             )
         
         # 2. Poisoned Index (if applicable)
@@ -158,7 +160,7 @@ def main():
                 corpus_path=args.poisoned_corpus_path, 
                 index_dir=args.poisoned_index_dir, 
                 model_name=args.retrieval_model_name,
-                device="cuda:2"
+                device=args.retriever_device
             )
 
     # Load Data

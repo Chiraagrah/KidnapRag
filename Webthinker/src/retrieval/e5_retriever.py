@@ -22,8 +22,10 @@ class E5_Retriever:
         poisoned_index_dir: Optional[str] = None,
         model_name: str = 'intfloat/e5-large-v2',
         device: str = 'cuda' if torch.cuda.is_available() else 'cpu',
-        batch_size: int = 32
+        batch_size: int = 32,
+        max_chunks_per_doc: int = 0
     ):
+        self.max_chunks_per_doc = max_chunks_per_doc
         self.device = device
         self.batch_size = batch_size
         self.model_name = model_name
@@ -145,10 +147,26 @@ class E5_Retriever:
         scores = torch.matmul(query_emb, self.all_embeddings.T).squeeze(0) # [num_docs]
         
         # Top-k
-        top_k_scores, top_k_indices = torch.topk(scores, k=k)
-        
+        # With per-doc dedup, over-fetch then keep the best chunks of each source doc
+        fetch = min(k * 8, scores.shape[0]) if self.max_chunks_per_doc > 0 else min(k, scores.shape[0])
+        top_k_scores, top_k_indices = torch.topk(scores, k=fetch)
+        order = list(range(fetch))
+        if self.max_chunks_per_doc > 0:
+            seen, kept = {}, []
+            for i in order:
+                d = self.corpus[top_k_indices[i].item()] if top_k_indices[i].item() < len(self.corpus) else {}
+                key = d.get('docid', d.get('_id', d.get('id', top_k_indices[i].item())))
+                if seen.get(key, 0) < self.max_chunks_per_doc:
+                    seen[key] = seen.get(key, 0) + 1
+                    kept.append(i)
+                if len(kept) == k:
+                    break
+            order = kept
+        else:
+            order = order[:k]
+
         results = []
-        for i in range(k):
+        for i in order:
             idx = top_k_indices[i].item()
             score = top_k_scores[i].item()
             

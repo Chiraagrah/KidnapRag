@@ -1628,7 +1628,8 @@ class WebThinkerAgent:
                 poisoned_corpus_path=args.poisoned_corpus_path,
                 poisoned_index_dir=args.poisoned_index_dir,
                 model_name=retrieval_model_name,
-                device="cuda:2" if torch.cuda.is_available() else "cpu"
+                device=getattr(args, 'retriever_device', 'cuda:0') if torch.cuda.is_available() else "cpu",
+                max_chunks_per_doc=getattr(args, 'max_chunks_per_doc', 0)
             )
         else:
             self.retriever = None
