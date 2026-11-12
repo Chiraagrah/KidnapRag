@@ -16,10 +16,7 @@ project_root = os.path.abspath(os.path.join(current_dir, ".."))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from models.react import ReActAgent
-from models.webthinker import WebThinkerAgent
 # from models.corag import CoRagModel
-from models.search_o1 import SearchO1Agent
 from src.retrieval import indexer
 from src.evaluation.metrics import f1_score, exact_match_score, check_asr
 
@@ -191,6 +188,7 @@ def main():
     # Instantiate Model
     print(f"Initializing Model: {args.model}")
     if args.model == "react":
+        from models.react import ReActAgent
         # ReAct Agent (Runs vLLM locally)
         agent = ReActAgent(
             args,
@@ -213,6 +211,7 @@ def main():
         results = final_results
 
     elif args.model == "webthinker":
+        from models.webthinker import WebThinkerAgent
         # from models.webthinker_utils.prompts import get_gpqa_web_thinker_instruction
         # instruction = get_gpqa_web_thinker_instruction(MAX_SEARCH_LIMIT=args.max_search_limit)
 
@@ -271,6 +270,7 @@ def main():
     #     results = final_results
 
     elif args.model == "search_o1":
+        from models.search_o1 import SearchO1Agent
         from transformers import AutoTokenizer
         tokenizer = None
         if args.model_path:

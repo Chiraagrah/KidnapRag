@@ -13,8 +13,6 @@
 # Env: API_BASE (required), GPT_OSS_DIR, DATA, CORPUS, POISONED_CORPUS, TAG, EXTRA_ARGS
 set -euo pipefail
 cd "${SLURM_SUBMIT_DIR:-$(dirname "$0")/..}"
-source /apps/easybuild/el9_5.x86_64/software/Miniforge3/24.11.3-0/etc/profile.d/conda.sh
-conda activate KidnapRAG
 export HF_HOME=${HF_HOME:-/project/ss797/cs757/.cache/huggingface} HF_HUB_OFFLINE=1
 : "${API_BASE:?}" "${GPT_OSS_DIR:?}"
 DATA=${DATA:-datasets/browsecomp_plus/bcp_select100.json}
