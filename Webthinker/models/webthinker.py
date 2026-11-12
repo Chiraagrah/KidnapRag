@@ -85,7 +85,9 @@ def extract_relevant_info_e5(results, top_k=5):
             # 'url': "",  # 실제 URL이 아니라 doc_id
             'snippet': text[:500] + "..." if len(text) > 500 else text,
             'page_info': text,  # 전체 텍스트
-            'is_poisoned': doc.get('is_poisoned', False)  # 추가 정보
+            'is_poisoned': doc.get('is_poisoned', False),  # 추가 정보
+            'id': doc.get('id', ''),  # chunk id ("<docid>#<n>"), for per-hop analysis
+            'score': doc.get('score', 0.0)
         })
     return relevant_info
 
