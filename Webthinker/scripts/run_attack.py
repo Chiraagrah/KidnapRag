@@ -212,6 +212,14 @@ def main():
 
     elif args.model == "webthinker":
         from models.webthinker import WebThinkerAgent
+        # Preflight: fail fast if the LLM server is unreachable (otherwise every
+        # generation silently returns "" and the run ends with EM 0.0)
+        import urllib.request
+        for name, base in (("main", args.api_base_url), ("aux", args.aux_api_base_url)):
+            try:
+                urllib.request.urlopen(base.rstrip("/") + "/models", timeout=20).read()
+            except Exception as e:
+                sys.exit(f"[FATAL] {name} LLM server not reachable at {base}: {e}")
         # from models.webthinker_utils.prompts import get_gpqa_web_thinker_instruction
         # instruction = get_gpqa_web_thinker_instruction(MAX_SEARCH_LIMIT=args.max_search_limit)
 
@@ -288,6 +296,17 @@ def main():
             merged.update(r)
             final_results.append(merged)
         results = final_results
+
+    # Guard: a run where most samples produced no output is a failed run, not a 0% score
+    if args.model == "webthinker" and results:
+        n_empty = sum(1 for r in results if not (r.get('output') or '').strip())
+        if n_empty > 0.5 * len(results):
+            os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+            bad = args.output_path + ".FAILED"
+            with open(bad, 'w', encoding='utf-8') as f:
+                json.dump(results, f, ensure_ascii=False)
+            sys.exit(f"[FATAL] {n_empty}/{len(results)} samples produced empty output (LLM server errors?). "
+                     f"Raw results saved to {bad}; not writing {args.output_path}.")
 
     # Calculate Metrics and Update Results with Correct Scores
     print(f"Calculating Metrics over {len(results)} samples...")

@@ -1,0 +1,43 @@
+{
+ "args": {
+  "results": "Webthinker/results/browsecomp_plus/clean_gptoss.json",
+  "output": "Webthinker/results/browsecomp_plus/mis_agreement_clean.json",
+  "api_base": "http://n0025:58739/v1",
+  "api_key": "EMPTY",
+  "model_name": "openai/gpt-oss-120b",
+  "reasoning_effort": "low",
+  "max_tokens": 1024,
+  "nli_model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+  "nli_device": "cuda:0",
+  "beta": 0.5,
+  "unknown_neutral": false,
+  "query_mode": "sub",
+  "sources": "main",
+  "max_questions": 0,
+  "workers": 8
+ },
+ "summary": {
+  "overall": {
+   "hops": 0,
+   "mean_n_unknown": null,
+   "mean_n_real_answers": null,
+   "mean_n_gold_docs_in_topk": null,
+   "mean_n_match_gold": null,
+   "mean_n_agree": null,
+   "mean_mis_size": null,
+   "mean_weakness": null,
+   "mean_mis_size_nli_only": null,
+   "mean_weakness_nli_only": null,
+   "mean_edge_density": null,
+   "frac_hops_ge3_match_gold": null,
+   "frac_hops_ge1_match_gold": null,
+   "frac_hops_ge3_agree": null,
+   "frac_hops_mis_has_gold_match": null
+  },
+  "per_hop_index": {},
+  "weakest_hop_index_overall": null,
+  "k": 0,
+  "go_criterion": "mean_n_match_gold >= 3 (or frac_hops_ge3_match_gold high) and mean_mis_size clearly above the HotpotQA baseline of 1.28/5"
+ },
+ "per_hop": []
+}
