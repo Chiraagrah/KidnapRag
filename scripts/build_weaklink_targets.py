@@ -29,8 +29,11 @@ for r in inj:
                           "margin": margin, "injection_cost": cost,
                           "leverage": (lev.get((r["qid"], r["hop"])) or {}).get("leverage")})
 
-targets = [min(hs, key=lambda h: (h["injection_cost"], -(h["leverage"] or 0), h["hop"]))
-           for hs in byq.values()]
+best = [min(hs, key=lambda h: (h["injection_cost"], -(h["leverage"] or 0), h["hop"]))
+        for hs in byq.values()]
+targets = [{"qid": t["qid"], "target_hop": t["hop"], "n_hops": t["n_hops"],
+            "margin": t["margin"], "injection_cost": t["injection_cost"],
+            "leverage": t["leverage"]} for t in best]
 json.dump({"targets": targets}, open(a.out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print(f"wrote {len(targets)} targets -> {a.out}")
-print("target-hop distribution:", dict(sorted(collections.Counter(t["hop"] for t in targets).items())))
+print("target-hop distribution:", dict(sorted(collections.Counter(t["target_hop"] for t in targets).items())))
