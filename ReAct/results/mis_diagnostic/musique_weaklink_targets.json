@@ -1,0 +1,804 @@
+{
+  "targets": [
+    {
+      "qid": "2hop__647996_551681",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0073,
+      "injection_cost": 0.0073,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__92051_827343",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0063,
+      "injection_cost": 0.0063,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__485221_544917",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0366,
+      "injection_cost": 0.0366,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__286093_361551",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0513,
+      "injection_cost": 0.0513,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__822965_165304",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0469,
+      "injection_cost": 0.0469,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__156085_436709",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0435,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__109131_343058",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0742,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__398344_85513",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.002,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__46550_85990",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0254,
+      "injection_cost": 0.0254,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__68590_27628",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.001,
+      "injection_cost": 0.001,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__73717_653666",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0396,
+      "injection_cost": 0.0396,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__598467_68489",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0513,
+      "injection_cost": 0.0513,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__37097_53663",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0117,
+      "injection_cost": 0.0117,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__678516_179720",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0293,
+      "injection_cost": 0.0293,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__498061_88622",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0527,
+      "injection_cost": 0.0527,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__754753_57816",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0444,
+      "injection_cost": 0.0444,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__580231_162399",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0425,
+      "injection_cost": 0.0425,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__332453_139339",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0449,
+      "injection_cost": 0.0449,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__144317_120065",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.043,
+      "injection_cost": 0.043,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__123545_47134",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0151,
+      "injection_cost": 0.0151,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__107905_110222",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0386,
+      "injection_cost": 0.0386,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__67660_81007",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0562,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__424294_19033",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.022,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__9238_9237",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.022,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__38030_23241",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0171,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__808562_72813",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.002,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__58168_38663",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0464,
+      "injection_cost": 0.0464,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__37656_160040",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0156,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__22885_36240",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0283,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__80673_510545",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.001,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__159903_154896",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": null,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__822113_91104",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0132,
+      "injection_cost": 0.0132,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__711639_110949",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.001,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__6827_86319",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0708,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__450608_373421",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0498,
+      "injection_cost": 0.0498,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__94629_1110",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0488,
+      "injection_cost": 0.0488,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__461639_83837",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0283,
+      "injection_cost": 0.0283,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__166820_52835",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0454,
+      "injection_cost": 0.0454,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__525242_52835",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0337,
+      "injection_cost": 0.0337,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__167577_31122",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0308,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__87053_319330",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__804417_126089",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0127,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__83785_461854",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0767,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__135336_461854",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0767,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__24697_578772",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0107,
+      "injection_cost": 0.0107,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__83938_5666",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0278,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__739909_807845",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0293,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__46213_494136",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0005,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__223823_29898",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": null,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__434218_29898",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.02,
+      "injection_cost": 0.02,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__543050_245420",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0371,
+      "injection_cost": 0.0371,
+      "leverage": 0
+    },
+    {
+      "qid": "2hop__32441_522949",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0068,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__31326_31270",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0112,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__144150_82341",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0171,
+      "injection_cost": 0.0171,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__704217_82341",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0713,
+      "injection_cost": 0.0713,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__444265_82341",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0234,
+      "injection_cost": 0.0234,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__145212_443779_52195",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0059,
+      "injection_cost": 0.0059,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__488744_443779_52195",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0059,
+      "injection_cost": 0.0059,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__831162_831637_91775",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": -0.0044,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__418091_15840_36014",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.0244,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__198276_709625_84283",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": 0.0088,
+      "injection_cost": 0.0088,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__274148_792411_51423",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": -0.0635,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__307152_400692_51423",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": -0.0718,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__89854_92991_76291",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0244,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__132957_132968_40768",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.02,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__668732_223623_162182",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0098,
+      "injection_cost": 0.0098,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__655849_223623_162182",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0098,
+      "injection_cost": 0.0098,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__140345_2053_52946",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.001,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__584774_131926_87157",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0156,
+      "injection_cost": 0.0156,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__90098_19639_10557",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0186,
+      "injection_cost": 0.0186,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__305282_282081_73772",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.0073,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__398232_326948_78782",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.0107,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__857_846_7794",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0195,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__844109_720914_27537",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": -0.0063,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__796649_720914_27537",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": -0.0063,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__67704_237521_291682",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": 0.022,
+      "injection_cost": 0.022,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__33845_42197_18397",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0059,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__28527_42197_18397",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0229,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__136129_87694_64412",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": 0.0063,
+      "injection_cost": 0.0063,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop1__860115_798482_131926_13165",
+      "target_hop": 3,
+      "n_hops": 4,
+      "margin": -0.0073,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop2__103790_14670_8987_8529",
+      "target_hop": 1,
+      "n_hops": 4,
+      "margin": -0.0166,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop1__88342_75218_128008_80286",
+      "target_hop": 0,
+      "n_hops": 4,
+      "margin": -0.0112,
+      "injection_cost": 0.0,
+      "leverage": 0
+    },
+    {
+      "qid": "4hop1__88342_75218_128008_67954",
+      "target_hop": 0,
+      "n_hops": 4,
+      "margin": -0.0112,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop1__199362_765799_282674_759393",
+      "target_hop": 1,
+      "n_hops": 4,
+      "margin": -0.0303,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop2__9988_158985_70784_61381",
+      "target_hop": 2,
+      "n_hops": 4,
+      "margin": -0.0244,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop1__802394_153080_159767_81096",
+      "target_hop": 1,
+      "n_hops": 4,
+      "margin": -0.0073,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop3__668721_132409_146285_35031",
+      "target_hop": 0,
+      "n_hops": 4,
+      "margin": -0.0005,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop3__312119_132409_371500_35031",
+      "target_hop": 0,
+      "n_hops": 4,
+      "margin": -0.0127,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "4hop1__58323_375563_161848_61344",
+      "target_hop": 0,
+      "n_hops": 4,
+      "margin": -0.0171,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__106864_80460",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": 0.0225,
+      "injection_cost": 0.0225,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__145203_34088",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0498,
+      "injection_cost": 0.0498,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__80070_89752",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0132,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__31995_8583",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": 0.0205,
+      "injection_cost": 0.0205,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__38229_84500",
+      "target_hop": 1,
+      "n_hops": 2,
+      "margin": -0.0034,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "2hop__7855_7794",
+      "target_hop": 0,
+      "n_hops": 2,
+      "margin": -0.0288,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__103890_10659_83548",
+      "target_hop": 2,
+      "n_hops": 3,
+      "margin": -0.0088,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop1__49236_89752_54221",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0352,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__67618_30587_44003",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": -0.0107,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__159979_30587_44003",
+      "target_hop": 0,
+      "n_hops": 3,
+      "margin": null,
+      "injection_cost": 0.0,
+      "leverage": 1
+    },
+    {
+      "qid": "3hop2__101809_30152_20999",
+      "target_hop": 1,
+      "n_hops": 3,
+      "margin": 0.0142,
+      "injection_cost": 0.0142,
+      "leverage": 1
+    }
+  ]
+}
