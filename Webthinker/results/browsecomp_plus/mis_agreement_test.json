@@ -1,0 +1,4229 @@
+{
+ "args": {
+  "results": "Webthinker/results/browsecomp_plus/clean_gptoss.json",
+  "output": "Webthinker/results/browsecomp_plus/mis_agreement_test.json",
+  "api_base": "http://n0025:58739/v1",
+  "api_key": "EMPTY",
+  "model_name": "openai/gpt-oss-120b",
+  "reasoning_effort": "low",
+  "max_tokens": 1024,
+  "nli_model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+  "nli_device": "cuda:0",
+  "beta": 0.5,
+  "unknown_neutral": false,
+  "query_mode": "sub",
+  "sources": "main",
+  "max_questions": 3,
+  "workers": 8
+ },
+ "summary": {
+  "overall": {
+   "hops": 15,
+   "mean_n_unknown": 4.6667,
+   "mean_n_real_answers": 0.3333,
+   "mean_n_gold_docs_in_topk": 0.4667,
+   "mean_n_match_gold": 0.0667,
+   "mean_n_agree": 0.3333,
+   "mean_mis_size": 1.0,
+   "mean_weakness": 0.8,
+   "mean_mis_size_nli_only": 4.7333,
+   "mean_weakness_nli_only": 0.0533,
+   "mean_edge_density": 1.0,
+   "frac_hops_ge3_match_gold": 0.0,
+   "frac_hops_ge1_match_gold": 0.0667,
+   "frac_hops_ge3_agree": 0.0,
+   "frac_hops_mis_has_gold_match": 0.0
+  },
+  "per_hop_index": {
+   "1": {
+    "hops": 3,
+    "mean_n_unknown": 4.6667,
+    "mean_n_real_answers": 0.3333,
+    "mean_n_gold_docs_in_topk": 0.3333,
+    "mean_n_match_gold": 0.3333,
+    "mean_n_agree": 0.3333,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 4.6667,
+    "mean_weakness_nli_only": 0.0667,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.3333,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "2": {
+    "hops": 3,
+    "mean_n_unknown": 4.6667,
+    "mean_n_real_answers": 0.3333,
+    "mean_n_gold_docs_in_topk": 1.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 0.3333,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 4.6667,
+    "mean_weakness_nli_only": 0.0667,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "3": {
+    "hops": 3,
+    "mean_n_unknown": 4.6667,
+    "mean_n_real_answers": 0.3333,
+    "mean_n_gold_docs_in_topk": 0.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 0.3333,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 4.6667,
+    "mean_weakness_nli_only": 0.0667,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "4": {
+    "hops": 3,
+    "mean_n_unknown": 4.6667,
+    "mean_n_real_answers": 0.3333,
+    "mean_n_gold_docs_in_topk": 1.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 0.3333,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 5.0,
+    "mean_weakness_nli_only": 0.0,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "5": {
+    "hops": 1,
+    "mean_n_unknown": 4.0,
+    "mean_n_real_answers": 1.0,
+    "mean_n_gold_docs_in_topk": 0.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 1.0,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 4.0,
+    "mean_weakness_nli_only": 0.2,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "6": {
+    "hops": 1,
+    "mean_n_unknown": 5.0,
+    "mean_n_real_answers": 0.0,
+    "mean_n_gold_docs_in_topk": 0.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 0.0,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 5.0,
+    "mean_weakness_nli_only": 0.0,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   },
+   "7": {
+    "hops": 1,
+    "mean_n_unknown": 5.0,
+    "mean_n_real_answers": 0.0,
+    "mean_n_gold_docs_in_topk": 0.0,
+    "mean_n_match_gold": 0.0,
+    "mean_n_agree": 0.0,
+    "mean_mis_size": 1.0,
+    "mean_weakness": 0.8,
+    "mean_mis_size_nli_only": 5.0,
+    "mean_weakness_nli_only": 0.0,
+    "mean_edge_density": 1.0,
+    "frac_hops_ge3_match_gold": 0.0,
+    "frac_hops_ge1_match_gold": 0.0,
+    "frac_hops_ge3_agree": 0.0,
+    "frac_hops_mis_has_gold_match": 0.0
+   }
+  },
+  "weakest_hop_index_overall": 1,
+  "k": 5,
+  "go_criterion": "mean_n_match_gold >= 3 (or frac_hops_ge3_match_gold high) and mean_mis_size clearly above the HotpotQA baseline of 1.28/5"
+ },
+ "per_hop": [
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 1,
+   "step": 0,
+   "source": "main",
+   "query": "hospital acute psychiatric units 10-20 located on hospital grounds town golf club 100 acres designed by two designers 1980s",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "hospital acute psychiatric units 10-20 located on hospital grounds town golf club 100 acres designed by two designers 1980s",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "List of golf courses designed by Jack Nicklaus - Wikipedia",
+      "score": 0.8022,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "67116#4",
+      "docid": "67116",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Golf courses by the decade: a timeline of the evolution of architecture",
+      "score": 0.79,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "67007#9",
+      "docid": "67007",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "CUSTOMER TESTIMONIALS",
+      "score": 0.7871,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32483#1",
+      "docid": "32483",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Dave Axland, January 2003",
+      "score": 0.7856,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "54433#19",
+      "docid": "54433",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Notables",
+      "score": 0.7847,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "46731#41",
+      "docid": "46731",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 2,
+   "step": 2,
+   "source": "main",
+   "query": "Tom Weiskopf Jay Morrish golf course town hospital acute psychiatric units 2014",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Tom Weiskopf Jay Morrish golf course town hospital acute psychiatric units 2014",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Golf courses by the decade: a timeline of the evolution of architecture",
+      "score": 0.8081,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "67007#9",
+      "docid": "67007",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Playing the Top 100 Golf Courses in The World",
+      "score": 0.8037,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "89524#5",
+      "docid": "89524",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Development of Quality Measures for Inpatient Psychiatric Facilities: Final Report",
+      "score": 0.8037,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "21957#59",
+      "docid": "21957",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "CUSTOMER TESTIMONIALS",
+      "score": 0.8027,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32483#1",
+      "docid": "32483",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Account Suspended",
+      "score": 0.7998,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "68584#0",
+      "docid": "68584",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 3,
+   "step": 4,
+   "source": "main",
+   "query": "Tom Weiskopf Jay Morrish 150 acre golf course town",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Tom Weiskopf Jay Morrish 150 acre golf course town",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Golf courses by the decade: a timeline of the evolution of architecture",
+      "score": 0.8145,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "67007#9",
+      "docid": "67007",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Playing the Top 100 Golf Courses in The World",
+      "score": 0.8081,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "89524#5",
+      "docid": "89524",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Jake O'Dell, PGA",
+      "score": 0.7974,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "83541#0",
+      "docid": "83541",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "This Town PROVES We Can Still Build Beautiful Cities",
+      "score": 0.7944,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "82989#0",
+      "docid": "82989",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "World-Class Course Architect Breaks Down 5 Iconic Golf Courses",
+      "score": 0.7939,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "24348#0",
+      "docid": "24348",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 4,
+   "step": 6,
+   "source": "main",
+   "query": "co‑designed golf course 150 acres \"designed by\" two architects",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "co‑designed golf course 150 acres \"designed by\" two architects",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Golf Architects",
+      "score": 0.8252,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "98460#0",
+      "docid": "98460",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Northwest Influential: The Architects",
+      "score": 0.8242,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "29388#4",
+      "docid": "29388",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Course History",
+      "score": 0.8213,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "17223#1",
+      "docid": "17223",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Dave Axland, January 2003",
+      "score": 0.8174,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "54433#1",
+      "docid": "54433",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "World-Class Course Architect Breaks Down 5 Iconic Golf Courses",
+      "score": 0.8149,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "24348#0",
+      "docid": "24348",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 5,
+   "step": 8,
+   "source": "main",
+   "query": "Tom Weiskopf Jay Morrish golf course UK",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 4,
+   "n_real_answers": 1,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 1,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 4,
+   "weakness_nli_only": 0.2,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Tom Weiskopf Jay Morrish golf course UK",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Playing the Top 100 Golf Courses in The World",
+      "score": 0.8101,
+      "is_poisoned": false,
+      "isolated_answer": "Loch Lomond (Scotland)",
+      "unknown": false,
+      "in_mis": true,
+      "chunk_id": "89524#5",
+      "docid": "89524",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Golf courses by the decade: a timeline of the evolution of architecture",
+      "score": 0.8096,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "67007#8",
+      "docid": "67007",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Top 10 golf course architects who most influenced the major championship venues",
+      "score": 0.8018,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "92499#4",
+      "docid": "92499",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "List of golf courses designed by Jack Nicklaus - Wikipedia",
+      "score": 0.793,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "67116#7",
+      "docid": "67116",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Get Started Now",
+      "score": 0.7925,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "10833#0",
+      "docid": "10833",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.9835,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.9835,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.9835,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.9835,
+      "reason": "nli"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.9835,
+      0.9835,
+      0.9835,
+      0.9835
+     ],
+     [
+      0.9835,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.9835,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.9835,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.9835,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 4,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 4,
+     "excluded_fraction_nli_only": 0.2,
+     "edge_density_nli_only": 0.4,
+     "weakness_nli_only": 0.2
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 6,
+   "step": 10,
+   "source": "main",
+   "query": "Loch Lomond Golf Club acreage 100 acres",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Loch Lomond Golf Club acreage 100 acres",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "List of golf courses designed by Jack Nicklaus - Wikipedia",
+      "score": 0.8076,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "67116#16",
+      "docid": "67116",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "CUSTOMER TESTIMONIALS",
+      "score": 0.8003,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32483#1",
+      "docid": "32483",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Playing the Top 100 Golf Courses in The World",
+      "score": 0.8003,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "89524#5",
+      "docid": "89524",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "We've played more than 20,000 golf courses and these are the best in the UK and Ireland",
+      "score": 0.7905,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "66556#2",
+      "docid": "66556",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "",
+      "score": 0.7905,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "63282#318",
+      "docid": "63282",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "535",
+   "q_index": 0,
+   "hop": 7,
+   "step": 17,
+   "source": "main",
+   "query": "site:.gov.uk \"acute psychiatric unit\" \"hospital grounds\"",
+   "gold_answer": "Bantry General Hospital",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "site:.gov.uk \"acute psychiatric unit\" \"hospital grounds\"",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Acute psychiatric care: approaches to increasing the range of services and improving access and quality of care",
+      "score": 0.8379,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "80035#75",
+      "docid": "80035",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Aggression on the psychiatric ward: Prevalence and risk factors. A systematic review of the literature",
+      "score": 0.8198,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "37803#83",
+      "docid": "37803",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Prevalence and Risk Factors of Violence by Psychiatric Acute Inpatients: A Systematic Review and Meta-Analysis",
+      "score": 0.8169,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "66998#35",
+      "docid": "66998",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Rule",
+      "score": 0.8135,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "60649#19",
+      "docid": "60649",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Involuntary admission in Norwegian adult psychiatric hospitals: a systematic review",
+      "score": 0.813,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "75939#30",
+      "docid": "75939",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "861",
+   "q_index": 1,
+   "hop": 1,
+   "step": 0,
+   "source": "main",
+   "query": "architecture narrow plot fruit tree center design point of origin 180 sqm project fruit tree at centre architecture firm 2020",
+   "gold_answer": "Equipo de Arquitectura",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "architecture narrow plot fruit tree center design point of origin 180 sqm project fruit tree at centre architecture firm 2020",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "About",
+      "score": 0.7866,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "69893#14",
+      "docid": "69893",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "The Top 50 Architecture Firms in the Middle East",
+      "score": 0.7861,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "59460#21",
+      "docid": "59460",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Projects",
+      "score": 0.7852,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "69856#0",
+      "docid": "69856",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Forensic Architecture",
+      "score": 0.7837,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "38253#0",
+      "docid": "38253",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Matrix Design Studio",
+      "score": 0.7837,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "72471#2",
+      "docid": "72471",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "861",
+   "q_index": 1,
+   "hop": 2,
+   "step": 2,
+   "source": "main",
+   "query": "“fruit tree” “centre” architecture project narrow plot",
+   "gold_answer": "Equipo de Arquitectura",
+   "n_docs": 5,
+   "n_unknown": 4,
+   "n_real_answers": 1,
+   "n_gold_docs_in_topk": 1,
+   "n_match_gold": 0,
+   "n_agree": 1,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 4,
+   "weakness_nli_only": 0.2,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "“fruit tree” “centre” architecture project narrow plot",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Intermediate House / Equipo de Arquitectura",
+      "score": 0.8003,
+      "is_poisoned": false,
+      "isolated_answer": "mango tree",
+      "unknown": false,
+      "in_mis": true,
+      "chunk_id": "77211#1",
+      "docid": "77211",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "DAILY PROGRAM At Cinema Rossini",
+      "score": 0.7788,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32820#21",
+      "docid": "32820",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "ARCHITECTURE Norman Foster",
+      "score": 0.7778,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "84635#8",
+      "docid": "84635",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Architecture By Design",
+      "score": 0.7773,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "70328#3",
+      "docid": "70328",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "By Springfield Preservation Trust",
+      "score": 0.7754,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "66602#0",
+      "docid": "66602",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.9701,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.9701,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.9701,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.9701,
+      "reason": "nli"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.9701,
+      0.9701,
+      0.9701,
+      0.9701
+     ],
+     [
+      0.9701,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.9701,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.9701,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.9701,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 4,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 4,
+     "excluded_fraction_nli_only": 0.2,
+     "edge_density_nli_only": 0.4,
+     "weakness_nli_only": 0.2
+    }
+   }
+  },
+  {
+   "qid": "861",
+   "q_index": 1,
+   "hop": 3,
+   "step": 4,
+   "source": "main",
+   "query": "190 sqm plot mango tree architecture firm",
+   "gold_answer": "Equipo de Arquitectura",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "190 sqm plot mango tree architecture firm",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "About",
+      "score": 0.8032,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "69893#14",
+      "docid": "69893",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "100 Best Architecture and Design Firms in the United States",
+      "score": 0.7979,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "64938#2",
+      "docid": "64938",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "100 best architecture firms in the world",
+      "score": 0.7949,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "79288#11",
+      "docid": "79288",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "The Top 50 Architecture Firms in the Middle East",
+      "score": 0.7935,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "59460#14",
+      "docid": "59460",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Bahrain WTC Building : Architecture",
+      "score": 0.793,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "15995#16",
+      "docid": "15995",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "861",
+   "q_index": 1,
+   "hop": 4,
+   "step": 7,
+   "source": "main",
+   "query": "mango tree intermediates between the two blocks 190 sqm plot architecture",
+   "gold_answer": "Equipo de Arquitectura",
+   "n_docs": 5,
+   "n_unknown": 4,
+   "n_real_answers": 1,
+   "n_gold_docs_in_topk": 2,
+   "n_match_gold": 0,
+   "n_agree": 1,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "mango tree intermediates between the two blocks 190 sqm plot architecture",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "Intermediate House / Equipo de Arquitectura",
+      "score": 0.8452,
+      "is_poisoned": false,
+      "isolated_answer": "It serves as an intermediate element linking the two blocks.",
+      "unknown": false,
+      "in_mis": true,
+      "chunk_id": "77211#1",
+      "docid": "77211",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Discover the real estate crushes... of our buyers!",
+      "score": 0.7861,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "33193#16",
+      "docid": "33193",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Una pequeña oficina rodeada de naturaleza. Caja de Tierra por Equipo de Arquitectura",
+      "score": 0.7812,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "97267#0",
+      "docid": "97267",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Future Hospital: approval of preferred scheme and funding",
+      "score": 0.7798,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "18541#164",
+      "docid": "18541",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "",
+      "score": 0.7788,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "49044#0",
+      "docid": "49044",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.08,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.08,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.08,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.08,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.08,
+      0.08,
+      0.08,
+      0.08
+     ],
+     [
+      0.08,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.08,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.08,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.08,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 4,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "506",
+   "q_index": 2,
+   "hop": 1,
+   "step": 0,
+   "source": "main",
+   "query": "short film 2018 13 minutes mother audition son left alone one shot Alexa Mini rehearsals three months sound designer skipped half a year of music education before 2010 architect director 2022",
+   "gold_answer": "Patision Avenue",
+   "n_docs": 5,
+   "n_unknown": 4,
+   "n_real_answers": 1,
+   "n_gold_docs_in_topk": 1,
+   "n_match_gold": 1,
+   "n_agree": 1,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 4,
+   "weakness_nli_only": 0.2,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "short film 2018 13 minutes mother audition son left alone one shot Alexa Mini rehearsals three months sound designer skipped half a year of music education before 2010 architect director 2022",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "How to Sound Design a Short Film",
+      "score": 0.8208,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "41286#0",
+      "docid": "41286",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Dress Rehearsal I Short Film I Drama I Romance I Musical",
+      "score": 0.8188,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32335#0",
+      "docid": "32335",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "One Minute Short Film Winners - 2018",
+      "score": 0.8169,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "21795#0",
+      "docid": "21795",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "",
+      "score": 0.813,
+      "is_poisoned": false,
+      "isolated_answer": "Patision Avenue",
+      "unknown": false,
+      "in_mis": false,
+      "chunk_id": "51334#0",
+      "docid": "51334",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": true
+     },
+     {
+      "rank": 4,
+      "title": "Maestro | Official Trailer | Netflix",
+      "score": 0.8086,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "56815#0",
+      "docid": "56815",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.9984,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.9984,
+      "reason": "nli"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.9984,
+      "reason": "nli"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.9984,
+      "reason": "nli"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.9984,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.9984,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.9984,
+      0.0012
+     ],
+     [
+      0.9984,
+      0.9984,
+      0.9984,
+      0.0,
+      0.9984
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.9984,
+      0.0
+     ]
+    ],
+    "n_unknown": 4,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 4,
+     "excluded_fraction_nli_only": 0.2,
+     "edge_density_nli_only": 0.4,
+     "weakness_nli_only": 0.2
+    }
+   }
+  },
+  {
+   "qid": "506",
+   "q_index": 2,
+   "hop": 2,
+   "step": 2,
+   "source": "main",
+   "query": "Thanasis Neofotistos architect 2022",
+   "gold_answer": "Patision Avenue",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 2,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Thanasis Neofotistos architect 2022",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "",
+      "score": 0.8364,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "89480#0",
+      "docid": "89480",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "",
+      "score": 0.8193,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "51334#1",
+      "docid": "51334",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Caruso St John Architects",
+      "score": 0.7979,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "36610#6",
+      "docid": "36610",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "About",
+      "score": 0.7969,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "69893#36",
+      "docid": "69893",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "New perception of Architecture. MINUTES. short film series by KAAN Architecten",
+      "score": 0.791,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "83893#3",
+      "docid": "83893",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  },
+  {
+   "qid": "506",
+   "q_index": 2,
+   "hop": 3,
+   "step": 4,
+   "source": "main",
+   "query": "Alejandro Cabrera sound designer skipped half a year music education before 2010",
+   "gold_answer": "Patision Avenue",
+   "n_docs": 5,
+   "n_unknown": 4,
+   "n_real_answers": 1,
+   "n_gold_docs_in_topk": 0,
+   "n_match_gold": 0,
+   "n_agree": 1,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 4,
+   "weakness_nli_only": 0.2,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Alejandro Cabrera sound designer skipped half a year music education before 2010",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "",
+      "score": 0.8647,
+      "is_poisoned": false,
+      "isolated_answer": "True",
+      "unknown": false,
+      "in_mis": true,
+      "chunk_id": "47975#0",
+      "docid": "47975",
+      "is_gold_doc": false,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "ALVIN FIELDER",
+      "score": 0.8018,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "3601#32",
+      "docid": "3601",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "Interview with Anthony McGill",
+      "score": 0.7939,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "10595#8",
+      "docid": "10595",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "Chicago Gallery News",
+      "score": 0.7939,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "84088#46",
+      "docid": "84088",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Todd McComb's Jazz Thoughts",
+      "score": 0.7925,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "18908#70",
+      "docid": "18908",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.975,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.975,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.975,
+      "reason": "nli"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.975,
+      "reason": "nli"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.975,
+      0.975,
+      0.975,
+      0.975
+     ],
+     [
+      0.975,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.975,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.975,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.975,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 4,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 4,
+     "excluded_fraction_nli_only": 0.2,
+     "edge_density_nli_only": 0.4,
+     "weakness_nli_only": 0.2
+    }
+   }
+  },
+  {
+   "qid": "506",
+   "q_index": 2,
+   "hop": 4,
+   "step": 6,
+   "source": "main",
+   "query": "Patision Avenue short film 2018 mother audition son left alone synopsis",
+   "gold_answer": "Patision Avenue",
+   "n_docs": 5,
+   "n_unknown": 5,
+   "n_real_answers": 0,
+   "n_gold_docs_in_topk": 1,
+   "n_match_gold": 0,
+   "n_agree": 0,
+   "mis_size": 1,
+   "weakness": 0.8,
+   "mis_size_nli_only": 5,
+   "weakness_nli_only": 0.0,
+   "edge_density": 1.0,
+   "mis_contains_gold_match": false,
+   "graph": {
+    "query": "Patision Avenue short film 2018 mother audition son left alone synopsis",
+    "nodes": [
+     {
+      "rank": 0,
+      "title": "",
+      "score": 0.8555,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": true,
+      "chunk_id": "51334#0",
+      "docid": "51334",
+      "is_gold_doc": true,
+      "is_evidence_doc": true,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 1,
+      "title": "Short Films, Major Stories: Check Out the Full Tribeca 2018 Shorts Lineup",
+      "score": 0.8096,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "82162#4",
+      "docid": "82162",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 2,
+      "title": "One Minute Short Film Winners - 2018",
+      "score": 0.8052,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "21795#0",
+      "docid": "21795",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 3,
+      "title": "A Different Conversation: Maia Scalia on Her Stunning Directorial Debut, \"His Mother",
+      "score": 0.8052,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "61975#7",
+      "docid": "61975",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     },
+     {
+      "rank": 4,
+      "title": "Dress Rehearsal I Short Film I Drama I Romance I Musical",
+      "score": 0.8008,
+      "is_poisoned": false,
+      "isolated_answer": "unknown",
+      "unknown": true,
+      "in_mis": false,
+      "chunk_id": "32335#0",
+      "docid": "32335",
+      "is_gold_doc": false,
+      "is_evidence_doc": false,
+      "matches_gold_answer": false
+     }
+    ],
+    "edges": [
+     {
+      "i": 0,
+      "j": 1,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 0,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 2,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 1,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 3,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 2,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     },
+     {
+      "i": 3,
+      "j": 4,
+      "contra_prob": 0.0012,
+      "reason": "unknown"
+     }
+    ],
+    "adjacency": [
+     [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      0,
+      1,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     [
+      1,
+      1,
+      1,
+      1,
+      0
+     ]
+    ],
+    "contra_matrix": [
+     [
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0,
+      0.0012
+     ],
+     [
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0012,
+      0.0
+     ]
+    ],
+    "n_unknown": 5,
+    "unknown_contradicts": true,
+    "mis_selected": [
+     0
+    ],
+    "all_max_mis": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ],
+     [
+      3
+     ],
+     [
+      4
+     ]
+    ],
+    "metrics": {
+     "n_docs": 5,
+     "mis_size": 1,
+     "mis_ratio": 0.2,
+     "excluded_fraction": 0.8,
+     "edge_count": 10,
+     "max_edges": 10,
+     "edge_density": 1.0,
+     "num_max_mis": 5,
+     "weakness": 0.8,
+     "n_poisoned": 0,
+     "poisoned_survived_mis": 0,
+     "mis_size_nli_only": 5,
+     "excluded_fraction_nli_only": 0.0,
+     "edge_density_nli_only": 0.0,
+     "weakness_nli_only": 0.0
+    }
+   }
+  }
+ ]
+}
