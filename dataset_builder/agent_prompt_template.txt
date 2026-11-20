@@ -1,0 +1,71 @@
+You are collecting raw web search results for a dataset build. Do not judge
+relevance to the original question, do not summarize the dataset, do not
+answer the questions. Your job is: run searches with WebSearch, fetch a
+short real excerpt for the top results with WebFetch, and write everything
+to a file.
+
+INPUT: a JSON array at {CHUNK_INPUT_PATH}, where each entry has this shape:
+{{"qid": str, "question": str, "hops": [{{"hop_idx": int, "query": str, "paraphrase": str}}, ...]}}
+
+OUTPUT: write to {CHUNK_OUTPUT_PATH}. The file may already exist and already
+contain some entries from a previous run — if so, read it first and skip any
+(qid, search_type, hop_idx) combination it already has. Otherwise start with
+an empty JSON array `[]`.
+
+For EACH entry in the input array, run these searches in this fixed order,
+using your WebSearch tool, mode "standard":
+
+1. search_type "full_question": the entry's "question" field, verbatim.
+2. For each item in "hops", in hop_idx order:
+   a. search_type "hop": the hop's "query" field, verbatim.
+   b. search_type "hop_paraphrase": the hop's "paraphrase" field, verbatim.
+
+For EACH search, WebSearch returns up to 10 results (title, url). WebSearch's
+own snippet field is unreliable and often empty — do not rely on it. Instead:
+
+- Take the top {MAX_FETCH_PER_SEARCH} results from that search (by the order
+  WebSearch returned them).
+- For each of those, call WebFetch on its url with a prompt like "Quote the
+  2-3 sentences from this page that are most relevant to: <the query you
+  searched>" and use the returned text, trimmed to roughly 300-500
+  characters, as that result's "snippet".
+- For any result beyond the first {MAX_FETCH_PER_SEARCH}, or any result whose
+  WebFetch call fails, times out, or is refused (paywall, blocked, not
+  fetchable), still include it in "results" with "snippet": "" and add
+  "fetch_error": "<brief reason>" on that result object. Do not retry a
+  failed fetch more than once. Never fetch a PDF, an image, or a non-HTML
+  file — just mark it unfetched instead.
+- Skip obvious low-value mirrors/junk domains entirely if you recognize them
+  (IPFS gateways, auto-translated scraper clones, link-farm aggregators) --
+  for those, keep the title/url in "results" but do not spend a fetch on
+  them; mark "snippet": "" and "fetch_error": "skipped_low_value_domain".
+
+After EACH individual search's full set of fetches is done, immediately
+append one object to the output JSON array and rewrite the file to disk
+(read-modify-write the whole array; do not wait and batch multiple searches
+before writing). Each appended object must have exactly this shape:
+
+{{
+  "qid": "<the entry's qid>",
+  "search_type": "full_question" | "hop" | "hop_paraphrase",
+  "hop_idx": null for full_question, otherwise the hop's hop_idx,
+  "query_text": "<the exact query string you searched>",
+  "results": [
+    {{"title": "<result title>", "url": "<result url>",
+     "snippet": "<fetched excerpt, or empty string if unfetched>",
+     "fetch_error": "<only present if snippet is empty: brief reason>"}}
+    ... one entry per search result, up to 10, in the order WebSearch returned them
+  ],
+  "timestamp": "<current UTC time in ISO 8601, e.g. 2026-11-19T22:04:11Z>"
+}}
+
+If a search returns zero results, still append an object for it with
+"results": []. If the WebSearch call itself errors or times out, retry it
+once; if it fails again, append an object with "results": [] and a top-level
+key "error": "<brief reason>" so the merge step can flag it for a rerun.
+
+Do not add any other top-level keys. Do not wrap the array in another
+object. Do not print commentary, explanations, or summaries to stdout about
+what you found -- just do the searches, the fetches, and write the file.
+When every entry in the input array has been fully processed (all its
+searches present in the output file), stop.

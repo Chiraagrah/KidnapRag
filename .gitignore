@@ -1,4 +1,6 @@
 # Datasets (large, not versioned)
+dataset/
+data/
 datasets/
 **/datasets/
 
@@ -22,3 +24,12 @@ Thumbs.db
 logs/
 *.out
 *.err
+
+# Secrets and raw web-search data (never commit)
+.env
+**/.env
+keenable_raw/
+serp_raw/
+dataset_builder/searches*.json
+_to_delete/
+dataset_builder/build/

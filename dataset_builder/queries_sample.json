@@ -1,0 +1,55 @@
+[
+  {
+    "qid": "2hop__67660_81007",
+    "question": "Who does the narrator on How I Met Your Mother end up with?",
+    "hops": [
+      {
+        "hop_idx": 0,
+        "query": "Who narrates How I Met Your Mother?",
+        "paraphrase": "How I Met Your Mother narrator identity"
+      },
+      {
+        "hop_idx": 1,
+        "query": "Who does Ted Mosby end up with?",
+        "paraphrase": "Ted Mosby's eventual wife"
+      }
+    ]
+  },
+  {
+    "qid": "sample_2hop_b",
+    "question": "Where does the founder of Les Films Du Losange work at?",
+    "hops": [
+      {
+        "hop_idx": 0,
+        "query": "Who founded Les Films Du Losange?",
+        "paraphrase": "Les Films Du Losange founder name"
+      },
+      {
+        "hop_idx": 1,
+        "query": "Where does Barbet Schroeder work?",
+        "paraphrase": "Barbet Schroeder current workplace"
+      }
+    ]
+  },
+  {
+    "qid": "sample_3hop_c",
+    "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "hops": [
+      {
+        "hop_idx": 0,
+        "query": "What nationality is Scott Derrickson?",
+        "paraphrase": "Scott Derrickson nationality director"
+      },
+      {
+        "hop_idx": 1,
+        "query": "What nationality was Ed Wood?",
+        "paraphrase": "Ed Wood director nationality"
+      },
+      {
+        "hop_idx": 2,
+        "query": "Scott Derrickson Ed Wood same nationality comparison",
+        "paraphrase": "compare nationalities Scott Derrickson Ed Wood"
+      }
+    ]
+  }
+]

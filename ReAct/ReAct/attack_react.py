@@ -23,8 +23,15 @@ parser.add_argument("--model_path",type=str)
 parser.add_argument("--dataset",type=str)
 parser.add_argument("--max_steps",type=int,default = 9)
 parser.add_argument("--output_tag",type=str,default = "")
+parser.add_argument("--max_docs_per_docid", type=int, default=1,
+    help="Cap on how many of the k retrieved docs may share one source-cluster "
+         "docid, so mirror/duplicate copies of one source can't fill the "
+         "top-k (see dataset_builder/05_build_corpus.py). Pass -1 to disable "
+         "(legacy plain top-k; no-op on corpora with no docid field anyway).")
 
 args = parser.parse_args()
+if args.max_docs_per_docid is not None and args.max_docs_per_docid < 0:
+    args.max_docs_per_docid = None
 
 if "Llama-3.3-70B-Instruct" in args.model_path:
     llm_model = LLM(
@@ -134,13 +141,19 @@ retriever = E5_Retriever(
     device=cuda_device
 )
 
-env = E5WikiEnv(retriever, k=5)
+env = E5WikiEnv(retriever, k=5, max_docs_per_docid=getattr(args, "max_docs_per_docid", 1))
+# Legacy datasets keep their original wrapper classes (and data-file naming
+# convention) for exact back-compat; any other --dataset (e.g. the mhweb_*
+# datasets from dataset_builder/05_build_corpus.py) goes through the generic
+# JsonQAWrapper, which expects data/{dataset}_dev_simplified.json.
 if args.dataset=="hotpotqa":
     env = wrappers.HotPotQAWrapper(env, split="dev")
 elif args.dataset=="musique":
     env = wrappers.musiqueAWrapper(env, split="dev")
 elif args.dataset=="2wikimultihopqa":
     env = wrappers.wikimultihopqaWrapper(env, split="dev")
+else:
+    env = wrappers.JsonQAWrapper(env, dataset=args.dataset, split="dev")
 env = wrappers.LoggingWrapper(env)
 
 def step(env, action):

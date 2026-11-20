@@ -53,7 +53,15 @@ parser.add_argument("--unknown_neutral", action="store_true",
                          "weakness.")
 parser.add_argument("--isolated_max_tokens", type=int, default=64)
 parser.add_argument("--output_dir", type=str, default=None)
+parser.add_argument("--max_docs_per_docid", type=int, default=1,
+    help="Cap on how many of the k retrieved docs may share one source-cluster "
+         "docid, so mirror/duplicate copies of one source can't fake an "
+         "agreeing majority in the MIS diagnostic (see "
+         "dataset_builder/05_build_corpus.py). Pass -1 to disable (legacy "
+         "plain top-k; no-op on corpora with no docid field anyway).")
 args = parser.parse_args()
+if args.max_docs_per_docid is not None and args.max_docs_per_docid < 0:
+    args.max_docs_per_docid = None
 
 # -------------------------------------------------------------------- vLLM LLM
 if "Llama-3.3-70B-Instruct" in args.model_path:
@@ -113,13 +121,19 @@ retriever = E5_Retriever(
     device=cuda_device,
 )
 
-env = E5WikiEnv(retriever, k=5)
+env = E5WikiEnv(retriever, k=5, max_docs_per_docid=args.max_docs_per_docid)
+# Legacy datasets keep their original wrapper classes (and data-file naming
+# convention) for exact back-compat; any other --dataset (e.g. the mhweb_*
+# datasets from dataset_builder/05_build_corpus.py) goes through the generic
+# JsonQAWrapper, which expects data/{dataset}_dev_simplified.json.
 if args.dataset == "hotpotqa":
     env = wrappers.HotPotQAWrapper(env, split="dev")
 elif args.dataset == "musique":
     env = wrappers.musiqueAWrapper(env, split="dev")
 elif args.dataset == "2wikimultihopqa":
     env = wrappers.wikimultihopqaWrapper(env, split="dev")
+else:
+    env = wrappers.JsonQAWrapper(env, dataset=args.dataset, split="dev")
 env = wrappers.LoggingWrapper(env)
 
 mis = ReliabilityMIS(nli_model_name=args.nli_model, nli_device=nli_device, beta=args.beta,

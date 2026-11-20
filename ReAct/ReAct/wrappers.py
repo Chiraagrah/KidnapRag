@@ -86,14 +86,32 @@ def f1_score(prediction, ground_truth):
   f1 = (2 * precision * recall) / (precision + recall)
   return f1, precision, recall
   
-class HotPotQAWrapper(gym.Wrapper):
-  def __init__(self, env, split):
+class JsonQAWrapper(gym.Wrapper):
+  """Generic question-answering wrapper for any dataset stored as a JSON
+  list of {"question": ..., "answer": ...} records (the common
+  "*_dev_simplified.json" shape used by HotpotQA, MuSiQue, 2WikiMultihopQA,
+  and the MH-Web datasets built by dataset_builder/05_build_corpus.py).
+
+  Pass either `data_file` directly, or `dataset`+`split` to look it up as
+  f"{DATA_DIR}/{dataset}_{split}_simplified.json" (the convention
+  01_build_hops.py / 05_build_corpus.py and the ReAct scripts' --dataset
+  argument already follow), so a brand-new dataset name needs no code
+  change here -- only a matching *_dev_simplified.json file.
+  """
+  def __init__(self, env, split=None, data_file=None, dataset=None, info_split_key="hotpot_split"):
     super().__init__(env)
-    data_file = f"{DATA_DIR}/{HOTPOTQA_SPLIT_FILE[split]}"
+    if data_file is None:
+      if dataset is None:
+        raise ValueError("JsonQAWrapper needs either data_file= or dataset=")
+      data_file = f"{DATA_DIR}/{dataset}_{split}_simplified.json"
     self.data = json.load(open(data_file))
     self.data = [(d['question'], d['answer']) for d in self.data]
     self.data_idx = 0
     self.split = split
+    # Kept as "hotpot_split" by default for backward compatibility with
+    # existing consumers of info dicts produced by the older per-dataset
+    # wrapper classes below.
+    self.info_split_key = info_split_key
 
   def reset(self, seed=None, return_info=False, options=None, idx=None):
     self.env.reset(seed=seed, return_info=return_info, options=options)
@@ -109,10 +127,10 @@ class HotPotQAWrapper(gym.Wrapper):
 
   def _get_info(self):
     return {
-      "steps": self.steps, 
+      "steps": self.steps,
       "answer": self.answer,
-      "question": self.data[self.data_idx][0], 
-      "hotpot_split": self.split
+      "question": self.data[self.data_idx][0],
+      self.info_split_key: self.split
     }
 
   def get_reward(self, info):
@@ -122,7 +140,7 @@ class HotPotQAWrapper(gym.Wrapper):
       score = (pred == gt)
       return int(score)
     return 0
-  
+
   def get_metrics(self, info):
     if info['answer'] is not None:
       pred = normalize_answer(self.data[self.data_idx][1])
@@ -133,7 +151,7 @@ class HotPotQAWrapper(gym.Wrapper):
     return {'reward': 0, 'em': 0, 'f1': 0}
 
   def step(self, action):
-    # TODO: first step obs does not have question. 
+    # TODO: first step obs does not have question.
     obs, _, done, info = self.env.step(action)
     reward = self.get_reward(info)
     if done:
@@ -141,9 +159,16 @@ class HotPotQAWrapper(gym.Wrapper):
       info.update({"gt_answer": self.data[self.data_idx][1], "question_idx": self.data_idx})
       info.update(self.get_metrics(info))
     return obs, reward, done, info
-  
+
   def __len__(self):
     return len(self.data)
+
+
+class HotPotQAWrapper(JsonQAWrapper):
+  """Back-compat alias. Prefer JsonQAWrapper(env, dataset=args.dataset,
+  split=split) for new datasets."""
+  def __init__(self, env, split):
+    super().__init__(env, split=split, data_file=f"{DATA_DIR}/{HOTPOTQA_SPLIT_FILE[split]}")
 
 class FeverWrapper(gym.Wrapper):
   def __init__(self, env, split):
@@ -249,121 +274,15 @@ class LoggingWrapper(gym.Wrapper):
     self.write()
 
 
-class musiqueAWrapper(gym.Wrapper):
+class musiqueAWrapper(JsonQAWrapper):
+  """Back-compat alias. Prefer JsonQAWrapper(env, dataset=args.dataset,
+  split=split) for new datasets."""
   def __init__(self, env, split):
-    super().__init__(env)
-    data_file = f"{DATA_DIR}/{musique_SPLIT_FILE[split]}"
-    self.data = json.load(open(data_file))
-    self.data = [(d['question'], d['answer']) for d in self.data]
-    self.data_idx = 0
-    self.split = split
+    super().__init__(env, split=split, data_file=f"{DATA_DIR}/{musique_SPLIT_FILE[split]}")
 
-  def reset(self, seed=None, return_info=False, options=None, idx=None):
-    self.env.reset(seed=seed, return_info=return_info, options=options)
-    try:
-      self.env.step('')
-    except:
-      pass
-    self.env.reset(seed=seed, return_info=return_info, options=options)
-    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
-    observation = f"Question: {self.data[self.data_idx][0]}"
-    info = self._get_info()
-    return (observation, info) if return_info else observation
 
-  def _get_info(self):
-    return {
-      "steps": self.steps, 
-      "answer": self.answer,
-      "question": self.data[self.data_idx][0], 
-      "hotpot_split": self.split
-    }
-
-  def get_reward(self, info):
-    if info['answer'] is not None:
-      pred = normalize_answer(self.data[self.data_idx][1])
-      gt = normalize_answer(info['answer'])
-      score = (pred == gt)
-      return int(score)
-    return 0
-  
-  def get_metrics(self, info):
-    if info['answer'] is not None:
-      pred = normalize_answer(self.data[self.data_idx][1])
-      gt = normalize_answer(info['answer'])
-      em = (pred == gt)
-      f1 = f1_score(pred, gt)[0]
-      return {'reward': em, 'em': em, 'f1': f1}
-    return {'reward': 0, 'em': 0, 'f1': 0}
-
-  def step(self, action):
-    # TODO: first step obs does not have question. 
-    obs, _, done, info = self.env.step(action)
-    reward = self.get_reward(info)
-    if done:
-      obs = f"Episode finished, reward = {reward}\n"
-      info.update({"gt_answer": self.data[self.data_idx][1], "question_idx": self.data_idx})
-      info.update(self.get_metrics(info))
-    return obs, reward, done, info
-  
-  def __len__(self):
-    return len(self.data)
-
-  
-class wikimultihopqaWrapper(gym.Wrapper):
+class wikimultihopqaWrapper(JsonQAWrapper):
+  """Back-compat alias. Prefer JsonQAWrapper(env, dataset=args.dataset,
+  split=split) for new datasets."""
   def __init__(self, env, split):
-    super().__init__(env)
-    data_file = f"{DATA_DIR}/{wikimultihopqa_SPLIT_FILE[split]}"
-    self.data = json.load(open(data_file))
-    self.data = [(d['question'], d['answer']) for d in self.data]
-    self.data_idx = 0
-    self.split = split
-
-  def reset(self, seed=None, return_info=False, options=None, idx=None):
-    self.env.reset(seed=seed, return_info=return_info, options=options)
-    try:
-      self.env.step('')
-    except:
-      pass
-    self.env.reset(seed=seed, return_info=return_info, options=options)
-    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
-    observation = f"Question: {self.data[self.data_idx][0]}"
-    info = self._get_info()
-    return (observation, info) if return_info else observation
-
-  def _get_info(self):
-    return {
-      "steps": self.steps, 
-      "answer": self.answer,
-      "question": self.data[self.data_idx][0], 
-      "hotpot_split": self.split
-    }
-
-  def get_reward(self, info):
-    if info['answer'] is not None:
-      pred = normalize_answer(self.data[self.data_idx][1])
-      gt = normalize_answer(info['answer'])
-      score = (pred == gt)
-      return int(score)
-    return 0
-  
-  def get_metrics(self, info):
-    if info['answer'] is not None:
-      pred = normalize_answer(self.data[self.data_idx][1])
-      gt = normalize_answer(info['answer'])
-      em = (pred == gt)
-      f1 = f1_score(pred, gt)[0]
-      return {'reward': em, 'em': em, 'f1': f1}
-    return {'reward': 0, 'em': 0, 'f1': 0}
-
-  def step(self, action):
-    # TODO: first step obs does not have question. 
-    obs, _, done, info = self.env.step(action)
-    reward = self.get_reward(info)
-    if done:
-      obs = f"Episode finished, reward = {reward}\n"
-      info.update({"gt_answer": self.data[self.data_idx][1], "question_idx": self.data_idx})
-      info.update(self.get_metrics(info))
-    return obs, reward, done, info
-  
-  def __len__(self):
-    return len(self.data)
+    super().__init__(env, split=split, data_file=f"{DATA_DIR}/{wikimultihopqa_SPLIT_FILE[split]}")

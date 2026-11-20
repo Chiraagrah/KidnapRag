@@ -2,10 +2,14 @@
 from wikienv import WikiEnv, textSpace
 import json
 class E5WikiEnv(WikiEnv):
-    def __init__(self, retriever, k=1):
+    def __init__(self, retriever, k=1, max_docs_per_docid=1):
         super().__init__()
         self.retriever = retriever
         self.k = k
+        # Cap on how many of the k retrieved docs may share one source-cluster
+        # docid (see E5_Retriever.search / dataset_builder/05_build_corpus.py).
+        # None disables dedup (legacy plain top-k behavior).
+        self.max_docs_per_docid = max_docs_per_docid
         # Re-initialize these as they might be reset in super().__init__ but we want to be sure
         self.observation_space = self.action_space = textSpace()
         self.last_search_poisoned = False
@@ -39,7 +43,7 @@ class E5WikiEnv(WikiEnv):
     def search_step(self, entity):
         # Override Wikipedia search with E5 Retrieve
         # We search for the top k documents
-        results = self.retriever.search(entity, k=self.k)
+        results = self.retriever.search(entity, k=self.k, max_docs_per_docid=self.max_docs_per_docid)
         poisoned_cnt = sum(1 for res in results if res.get('is_poisoned', False))
         total_cnt = len(results)
         print(f"[Retriever Results] {results}")

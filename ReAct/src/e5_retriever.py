@@ -119,40 +119,71 @@ class E5_Retriever:
 
         logger.info(f"Added {len(corpus)} new corpus to the retriever.")
 
-    def search(self, query: str, k: int = 5) -> List[Dict]:
+    def search(self, query: str, k: int = 5, max_docs_per_docid: Optional[int] = 1,
+               overfetch_factor: int = 20) -> List[Dict]:
         """
         Search for the query and return top-k documents.
         Returns a list of dicts: {'id': ..., 'title': ..., 'contents': ..., 'score': ...}
+
+        max_docs_per_docid: cap on how many returned docs may share the same
+        source-cluster `docid` (see dataset_builder/05_build_corpus.py). This
+        stops mirror/duplicate copies of one source from filling the top-k and
+        faking an "agreeing majority". Set to None to disable (legacy
+        behavior: plain top-k, no dedup). Docs with no `docid` field (e.g. the
+        original HotpotQA/MuSiQue/2WikiMultihopQA corpora) each count as their
+        own unique cluster, so this is a no-op on those datasets.
+        overfetch_factor: how many candidates beyond k to pull from the index
+        before applying the per-docid cap, so capping doesn't starve the
+        result count when top-ranked docs cluster heavily.
         """
         if self.all_embeddings is None:
             return []
 
         query_emb = self.encode_queries([query]) # [1, dim]
-        
+
         # Ensure dtypes match (safety cast)
         if self.all_embeddings is not None:
             query_emb = query_emb.to(self.all_embeddings.dtype)
 
         # Dot product similarity
         scores = torch.matmul(query_emb, self.all_embeddings.T).squeeze(0) # [num_docs]
-        
-        # Top-k
-        top_k_scores, top_k_indices = torch.topk(scores, k=k)
-        
+
+        # Pull extra candidates when dedup is on, so the per-docid cap has
+        # room to skip duplicates without returning fewer than k docs.
+        n_docs = scores.shape[0]
+        fetch_k = k if max_docs_per_docid is None else min(n_docs, max(k * overfetch_factor, k))
+        top_scores, top_indices = torch.topk(scores, k=fetch_k)
+
         results = []
-        for i in range(k):
-            idx = top_k_indices[i].item()
-            score = top_k_scores[i].item()
-            
+        docid_counts: Dict[str, int] = {}
+        for i in range(fetch_k):
+            if len(results) >= k:
+                break
+            idx = top_indices[i].item()
+            score = top_scores[i].item()
+
             doc = self.corpus[idx] if idx < len(self.corpus) else {}
+            doc_id = doc.get('_id', doc.get('id', str(idx)))
+            # Fall back to the doc's own id when it carries no explicit
+            # `docid` (source-cluster id) field, so every doc is its own
+            # cluster of one -- a no-op on corpora without that field.
+            cluster_id = doc.get('docid', doc_id)
+
+            if max_docs_per_docid is not None:
+                seen = docid_counts.get(cluster_id, 0)
+                if seen >= max_docs_per_docid:
+                    continue
+                docid_counts[cluster_id] = seen + 1
+
             results.append({
-                'id': doc.get('_id', doc.get('id', str(idx))),
+                'id': doc_id,
+                'docid': cluster_id,
                 'title': doc.get('title', ''),
                 'contents': doc.get('text', doc.get('contents', '')),
                 'score': score,
                 'is_poisoned': idx >= self.num_clean_docs
             })
-            
+
         return results
 
 # Helper function for quick testing
