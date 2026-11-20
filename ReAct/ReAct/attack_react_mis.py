@@ -5,20 +5,37 @@ MIS defense applied as a READ-ONLY diagnostic at every ReAct loop.
 What it does differently from attack_react.py:
   * clean corpus only (no poisoned corpus) -- this is the no-attack scenario;
   * at each `Search[...]` step it re-runs ReliabilityRAG Algorithm 1 over the
-    5 retrieved docs (isolated answering with the SAME Qwen vLLM engine ->
-    pairwise DeBERTa NLI contradiction graph -> rank-aware MIS) WITHOUT changing
-    the observation the agent sees;
+    5 retrieved docs (isolated answering with the SAME LLM -> pairwise DeBERTa
+    NLI contradiction graph -> rank-aware MIS) WITHOUT changing the
+    observation the agent sees;
   * it logs a composite per-loop "weakness" and then reports, across the run,
     (a) the mean weakness per loop index and (b) the distribution of each
     question's single weakest loop.
 
-Model + data match KidnapRAG: Qwen/Qwen2.5-32B-Instruct on HotpotQA.
+Two ways to supply the agent LLM:
+  * --model_path (default): load the model in-process with vLLM, as before.
+    Model + data match KidnapRAG: Qwen/Qwen2.5-32B-Instruct on HotpotQA.
+  * --api_base (e.g. gpt-oss-120b served by
+    ReliabilityRAG/scripts/serve_gpt_oss_local.slurm): call an OpenAI-
+    compatible /v1/completions endpoint instead of loading a model here, so
+    the same already-running server used by the webthinker/BrowseComp-Plus
+    track can be reused for this ReAct run. Raw (non-chat) completions are
+    used, matching ReAct's stop-sequence-driven generation; gpt-oss is known
+    to leak its harmony "analysis" (chain-of-thought) channel into raw
+    completions (see ReliabilityRAG docs/HANDOFF.md "Known risks"), so the
+    response is passed through strip_harmony_channels() before use.
 
-Example (Wulver):
+Example (Wulver, in-process vLLM, unchanged from before):
   cd ReAct/ReAct
   CUDA_VISIBLE_DEVICES=0,1 python attack_react_mis.py \
       --model_path Qwen/Qwen2.5-32B-Instruct --dataset hotpotqa --seed 1 \
       --nli_device cuda:0 --max_steps 15
+
+Example (Wulver, gpt-oss server):
+  cd ReAct/ReAct
+  python attack_react_mis.py --dataset mhweb_musique --seed 1 \
+      --api_base "http://$(tr -d '[:space:]' < ~/vllm_local_server.txt)/v1" \
+      --api_model openai/gpt-oss-120b --nli_device cuda:0 --max_steps 15
 """
 
 import os
@@ -30,19 +47,30 @@ import argparse
 import requests
 from collections import Counter, defaultdict
 
-from vllm import LLM, SamplingParams
-
 # ----------------------------------------------------------------------- args
 parser = argparse.ArgumentParser()
 parser.add_argument("--dry_run", action="store_true", help="Run only the first sample")
 parser.add_argument("--limit", type=int, default=0, help="Process only the first N questions (0 = all)")
 parser.add_argument("--seed", type=int, default=1)
-parser.add_argument("--model_path", type=str, default="Qwen/Qwen2.5-32B-Instruct")
+parser.add_argument("--model_path", type=str, default="Qwen/Qwen2.5-32B-Instruct",
+                    help="In-process vLLM model (ignored if --api_base is set)")
+parser.add_argument("--api_base", type=str, default=None,
+                    help="If set, call this OpenAI-compatible base URL (e.g. "
+                         "http://HOST:PORT/v1 from ~/vllm_local_server.txt) instead "
+                         "of loading a model in-process. Use for a server already "
+                         "started with ReliabilityRAG/scripts/serve_gpt_oss_local.slurm.")
+parser.add_argument("--api_key", type=str, default="EMPTY")
+parser.add_argument("--api_model", type=str, default="openai/gpt-oss-120b",
+                    help="--served-model-name on the server (gpt-oss-120b server uses "
+                         "this exact name; see serve_gpt_oss_local.slurm)")
+parser.add_argument("--api_timeout", type=float, default=600.0)
+parser.add_argument("--api_retries", type=int, default=5)
 parser.add_argument("--dataset", type=str, default="hotpotqa")
 parser.add_argument("--max_steps", type=int, default=15,
                     help="Max ReAct loops (KidnapRAG default was 9; raised here)")
 parser.add_argument("--nli_device", type=str, default=None,
-                    help="Device for the DeBERTa NLI model (default: cuda:0 for qwen, cpu for llama)")
+                    help="Device for the DeBERTa NLI model (default: cuda:0 for qwen, cpu for llama, "
+                         "cuda:0 when --api_base is set since no GPU is used for the agent model)")
 parser.add_argument("--nli_model", type=str,
                     default="MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli")
 parser.add_argument("--beta", type=float, default=0.5, help="NLI contradiction threshold")
@@ -63,44 +91,119 @@ args = parser.parse_args()
 if args.max_docs_per_docid is not None and args.max_docs_per_docid < 0:
     args.max_docs_per_docid = None
 
-# -------------------------------------------------------------------- vLLM LLM
-if "Llama-3.3-70B-Instruct" in args.model_path:
-    llm_model = LLM(model=args.model_path, dtype="bfloat16", tensor_parallel_size=4,
-                    trust_remote_code=True, max_model_len=30000, gpu_memory_utilization=0.8)
-    cuda_device = "cuda:3"
-    default_nli_device = "cpu"          # tp=4 occupies all GPUs
-else:
-    llm_model = LLM(model=args.model_path, dtype="bfloat16", tensor_parallel_size=1,
-                    trust_remote_code=True, max_model_len=30000, gpu_memory_utilization=0.9)
-    cuda_device = "cuda:1"
-    default_nli_device = "cuda:0"       # qwen is tp=1 on cuda:1, so cuda:0 is free
+# ------------------------------------------------------------------ agent LLM
+# Two mutually exclusive backends for generation:
+#   api_base set    -> HTTP calls to an already-running OpenAI-compatible
+#                       server (e.g. gpt-oss-120b via serve_gpt_oss_local.slurm).
+#                       No GPU is used in this process for the agent model.
+#   api_base unset   -> load --model_path in-process with vLLM (original
+#                       KidnapRAG behavior, unchanged).
+_HARMONY_CHANNEL_RE = re.compile(
+    r"<\|channel\|>\s*(?P<channel>\w+)\s*<\|message\|>(?P<body>.*?)"
+    r"(?=<\|channel\|>|<\|end\|>|<\|return\|>|\Z)", re.S)
 
-if "Qwen2.5-32B-Instruct" in args.model_path:
-    m = "qwen25"
-elif "Llama-3.3-70B-Instruct" in args.model_path:
-    m = "llama70b"
+
+def strip_harmony_channels(text):
+    """gpt-oss (and other harmony-format models) can leak raw
+    "<|channel|>analysis<|message|>...<|channel|>final<|message|>..." markup
+    into /v1/completions output (the harmony chat template that normally
+    separates reasoning from the final answer is only applied by
+    /v1/chat/completions). If any channel markers are present, keep only the
+    "final" channel's text (falling back to "commentary" tool-call text, then
+    the last channel seen, if no "final" channel appears); otherwise return
+    the text unchanged. See ReliabilityRAG docs/HANDOFF.md "Known risks".
+    """
+    if "<|channel|>" not in text:
+        return text
+    matches = list(_HARMONY_CHANNEL_RE.finditer(text))
+    if not matches:
+        return text
+    by_channel = {}
+    for mt in matches:
+        by_channel.setdefault(mt.group("channel"), []).append(mt.group("body"))
+    for preferred in ("final", "commentary"):
+        if preferred in by_channel:
+            return "".join(by_channel[preferred]).strip()
+    return matches[-1].group("body").strip()
+
+
+if args.api_base:
+    from openai import OpenAI
+    _client = OpenAI(api_key=args.api_key, base_url=args.api_base)
+    try:
+        _client.models.list()
+    except Exception as e:
+        sys.exit(f"[FATAL] LLM server not reachable at {args.api_base}: {e}")
+    # The agent LLM lives on the remote server and uses no local GPU here, but
+    # the E5 retriever still runs in this process and needs a real device.
+    import torch
+    cuda_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    default_nli_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    m = re.sub(r"[^A-Za-z0-9_.-]+", "_", args.api_model.rsplit("/", 1)[-1])
+
+    def _api_complete(prompt, stop, max_tokens):
+        custom_stop = list(stop) + ["\nQuestion:", "\nThought", "Observation"]
+        last_err = None
+        for attempt in range(args.api_retries):
+            try:
+                resp = _client.completions.create(
+                    model=args.api_model, prompt=prompt, temperature=0, top_p=1,
+                    max_tokens=max_tokens, seed=args.seed, stop=custom_stop,
+                    timeout=args.api_timeout,
+                )
+                return strip_harmony_channels(resp.choices[0].text or "")
+            except Exception as e:
+                last_err = e
+                time.sleep(min(2 ** attempt, 30))
+        print(f"[Error] LLM server call failed after {args.api_retries} attempts: {last_err}")
+        return ""
+
+    def llm(prompt, stop=["\n"]):
+        """ReAct generation via the OpenAI-compatible server."""
+        return _api_complete(prompt, stop, max_tokens=100)
+
+    def isolated_generate(prompt):
+        """Short, deterministic generation used for ReliabilityRAG isolated answering."""
+        return _api_complete(prompt, stop=["\n"], max_tokens=args.isolated_max_tokens)
+
 else:
-    m = "model"
+    from vllm import LLM, SamplingParams
+
+    if "Llama-3.3-70B-Instruct" in args.model_path:
+        llm_model = LLM(model=args.model_path, dtype="bfloat16", tensor_parallel_size=4,
+                        trust_remote_code=True, max_model_len=30000, gpu_memory_utilization=0.8)
+        cuda_device = "cuda:3"
+        default_nli_device = "cpu"          # tp=4 occupies all GPUs
+    else:
+        llm_model = LLM(model=args.model_path, dtype="bfloat16", tensor_parallel_size=1,
+                        trust_remote_code=True, max_model_len=30000, gpu_memory_utilization=0.9)
+        cuda_device = "cuda:1"
+        default_nli_device = "cuda:0"       # qwen is tp=1 on cuda:1, so cuda:0 is free
+
+    if "Qwen2.5-32B-Instruct" in args.model_path:
+        m = "qwen25"
+    elif "Llama-3.3-70B-Instruct" in args.model_path:
+        m = "llama70b"
+    else:
+        m = "model"
+
+    def llm(prompt, stop=["\n"]):
+        """ReAct generation (unchanged from attack_react.py)."""
+        custom_stop = stop + ["\nQuestion:", "\nThought", "Observation"]
+        sampling_params = SamplingParams(temperature=0, top_p=1, max_tokens=100,
+                                         seed=args.seed, stop=custom_stop)
+        outputs = llm_model.generate([prompt], sampling_params, use_tqdm=False)
+        return outputs[0].outputs[0].text
+
+    def isolated_generate(prompt):
+        """Short, deterministic generation used for ReliabilityRAG isolated answering."""
+        sampling_params = SamplingParams(temperature=0, top_p=1,
+                                         max_tokens=args.isolated_max_tokens,
+                                         seed=args.seed, stop=["\n"])
+        outputs = llm_model.generate([prompt], sampling_params, use_tqdm=False)
+        return outputs[0].outputs[0].text
 
 nli_device = args.nli_device or default_nli_device
-
-
-def llm(prompt, stop=["\n"]):
-    """ReAct generation (unchanged from attack_react.py)."""
-    custom_stop = stop + ["\nQuestion:", "\nThought", "Observation"]
-    sampling_params = SamplingParams(temperature=0, top_p=1, max_tokens=100,
-                                     seed=args.seed, stop=custom_stop)
-    outputs = llm_model.generate([prompt], sampling_params, use_tqdm=False)
-    return outputs[0].outputs[0].text
-
-
-def isolated_generate(prompt):
-    """Short, deterministic generation used for ReliabilityRAG isolated answering."""
-    sampling_params = SamplingParams(temperature=0, top_p=1,
-                                     max_tokens=args.isolated_max_tokens,
-                                     seed=args.seed, stop=["\n"])
-    outputs = llm_model.generate([prompt], sampling_params, use_tqdm=False)
-    return outputs[0].outputs[0].text
 
 
 # -------------------------------------------------------------- env + retriever
