@@ -22,7 +22,7 @@
 #SBATCH --error=logs/mhweb_mis_%j.err
 set -euo pipefail
 
-REPO="${REPO:-/project/ss797/dk694/Repos/KidnapRag}"
+REPO="${REPO:-/project/ss797/dk694/Repos/Masters-Project-Reliability-RAG}"
 DATASET="${DATASET:-mhweb_musique}"
 PY="${PYTHON:-python3}"
 : "${API_BASE:?set API_BASE to http://HOST:PORT/v1 (e.g. from ~/vllm_local_server.txt)}"

@@ -37,7 +37,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/.." && pwd)"                           # KidnapRag/
 cd "$REPO"
-RRAG_DIR="${RRAG_DIR:-$(cd "$REPO/.." && pwd)/ReliabilityRAG}"
+RRAG_DIR="${RRAG_DIR:-$(cd "$REPO/.." && pwd)/Masters-Project-Reliability-RAG}"
 [[ -d "$RRAG_DIR" ]] || { echo "ReliabilityRAG repo not found at $RRAG_DIR (set RRAG_DIR=)" >&2; exit 1; }
 
 SERVER_FILE="${LOCAL_VLLM_SERVER_FILE:-$HOME/vllm_local_server.txt}"

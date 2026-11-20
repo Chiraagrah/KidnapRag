@@ -16,7 +16,7 @@
 #SBATCH --error=logs/mhweb_index_%j.err
 set -euo pipefail
 
-REPO="${REPO:-/project/ss797/dk694/Repos/KidnapRag}"
+REPO="${REPO:-/project/ss797/dk694/Repos/Masters-Project-Reliability-RAG}"
 NAME="${NAME:-mhweb_musique}"
 PY="${PYTHON:-python3}"
 export HF_HUB_OFFLINE=1
