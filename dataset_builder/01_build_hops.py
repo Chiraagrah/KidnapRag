@@ -125,7 +125,14 @@ RELATION_TEMPLATES = {
     "distributed by": "Who distributed {e}?",
     "sport": "What sport does {e} play?",
     "league": "What league does {e} play in?",
+    "crosses": "What does {e} cross?",
+    "drafted by": "Which team drafted {e}?",
+    "languages spoken, written or signed": "What language does {e} speak?",
+    "main subject": "What is the main subject of {e}?",
 }
+# Lookups lowercase the relation, so normalize the keys the same way
+# ("original language of film or TV show" never matched before).
+RELATION_TEMPLATES = {k.lower(): v for k, v in RELATION_TEMPLATES.items()}
 
 _LEADING = re.compile(r"^(?:(?:who|what|when|where|which|whom|whose|why|how many|how much|"
                       r"in what|in which|on what|at what)\s+)?(?:(?:is|was|are|were|did|does|"

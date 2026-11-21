@@ -22,7 +22,8 @@ QMAP="$REPO/ReAct/results/adv_targeted_results/musique_qid_to_idx.json"
 ADV="$REPO/ReAct/results/adv_targeted_results/musique.json"
 NAME="${NAME:-mhweb_musique}"
 RESERVE="${RESERVE:-20}"
-MAX_CALLS="${MAX_CALLS:-900}"        # budget guard; full plan is 720 calls
+MAX_CALLS="${MAX_CALLS:-2500}"       # budget guard on NEW calls per run (cached searches are free)
+N="${N:-100}"                        # questions to select into the corpus
 STEP="${1:-all}"
 mkdir -p "$BUILD"
 
@@ -39,8 +40,17 @@ fi
 
 if run hops; then
   echo "== 01 build hops (100 paper targets + $RESERVE reserves)"
-  "$PY" "$HERE/01_build_hops.py" --raw "$RAW" --qid-map "$QMAP" \
-      --out "$BUILD/queries_musique.json" --reserve "$RESERVE"
+  if [ -f "$BUILD/queries_musique.json" ]; then
+    # Grow the existing file instead of resampling, so already-collected
+    # searches stay valid (01_build_hops.py --extend-from).
+    cp "$BUILD/queries_musique.json" "$BUILD/queries_musique.prev.json"
+    "$PY" "$HERE/01_build_hops.py" --raw "$RAW" --qid-map "$QMAP" \
+        --out "$BUILD/queries_musique.json" --reserve "$RESERVE" \
+        --extend-from "$BUILD/queries_musique.prev.json"
+  else
+    "$PY" "$HERE/01_build_hops.py" --raw "$RAW" --qid-map "$QMAP" \
+        --out "$BUILD/queries_musique.json" --reserve "$RESERVE"
+  fi
 fi
 
 if run collect; then
@@ -69,11 +79,11 @@ if run build; then
   echo "== 05 corpus + ReAct files (hop searches only = default corpus)"
   "$PY" "$HERE/05_build_corpus.py" --queries "$BUILD/queries_musique.json" \
       --labeled-dir "$BUILD/labeled" --raw "$RAW" --adv-targets "$ADV" \
-      --repo-root "$REPO" --name "$NAME" --n 100
+      --repo-root "$REPO" --name "$NAME" --n "$N"
   echo "== 05 ablation corpus (with full-question results)"
   "$PY" "$HERE/05_build_corpus.py" --queries "$BUILD/queries_musique.json" \
       --labeled-dir "$BUILD/labeled" --raw "$RAW" --adv-targets "$ADV" \
-      --repo-root "$REPO" --name "${NAME}_fq" --n 100 --include-full-question
+      --repo-root "$REPO" --name "${NAME}_fq" --n "$N" --include-full-question
   echo
   echo "Next: copy ReAct/datasets/$NAME* to Wulver and run"
   echo "  NAME=$NAME sbatch scripts/wulver_build_mhweb_index.slurm"

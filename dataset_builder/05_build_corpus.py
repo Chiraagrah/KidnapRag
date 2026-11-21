@@ -73,7 +73,10 @@ def main():
                     help="snippets per hop in hops_rrag.json (default 30)")
     args = ap.parse_args()
 
-    pool_key = "bearing_sources_with_fq" if args.include_full_question else "bearing_sources_hop_pool"
+    # Select questions by the hop-search pool in BOTH builds, so the default
+    # corpus and the --include-full-question ablation cover the exact same
+    # questions; the flag only changes which docs go into the corpus.
+    pool_key = "bearing_sources_hop_pool"
     queries = {e["qid"]: e for e in read_json(args.queries)}
     stats = {s["qid"]: s for s in read_json(args.labeled_dir / "relevance_stats.json")["questions"]}
     adv = read_json(args.adv_targets)
