@@ -12,11 +12,12 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=01:00:00
-#SBATCH --output=logs/mhweb_index_%j.out
-#SBATCH --error=logs/mhweb_index_%j.err
+# Slurm will not create the log dir: mkdir -p /project/ss797/dk694/Repos/KidnapRag/ReAct/logs  (once)
+#SBATCH --output=/project/ss797/dk694/Repos/KidnapRag/ReAct/logs/mhweb_index_%j.out
+#SBATCH --error=/project/ss797/dk694/Repos/KidnapRag/ReAct/logs/mhweb_index_%j.err
 set -euo pipefail
 
-REPO="${REPO:-/project/ss797/dk694/Repos/Masters-Project-Reliability-RAG}"
+REPO="${REPO:-/project/ss797/dk694/Repos/KidnapRag}"   # KidnapRag; only the vLLM server job runs from ReliabilityRAG
 NAME="${NAME:-mhweb_musique}"
 PY="${PYTHON:-python3}"
 export HF_HUB_OFFLINE=1
